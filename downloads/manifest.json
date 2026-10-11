@@ -4,12 +4,12 @@
     "interface_version": 2,
     "documentation_version": "0.1.0",
     "status": "preview",
-    "host_version": "96e0538",
+    "host_version": "acebbee",
     "note": "公开插件契约预览；配置和接口以所安装宿主能力查询为准。"
   },
   "files": {
     "reference-data/publication.json": "82a2e3bdf82ec5d78715fbceac4e020192aa0003021ee195b60d8d3562972131",
-    "reference-data/release.json": "e3ac4b50f02370983028f4609e47d210ce0c07d090476ffacba1070fadcc3bec",
+    "reference-data/release.json": "5bac412ed0fbe1a06380793e3501e538fa21a3264ab3cd4ef714809c1db6bc1c",
     "reference-data/services.json": "f49cf372594b65cece901130a88073659e57f18d57c18a312e90a5e7a084a633",
     "reference-data/ui.toml": "b5fe486dc753f517b582aeb5b099af46ea8196fc9ddf8d3ad6d45a6dc4442097",
     "reference-data/zh-Hans.toml": "5c86eb7e1c2cf593a519bd72ff5a1bf704ea27ac840e408f52929441b0e5cbd0",
