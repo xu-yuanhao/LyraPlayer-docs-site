@@ -243,3 +243,5 @@ typedef struct LyraClassificationRulesV2 {
 } LyraClassificationRulesV2;
 
 #include "media_contracts.h"
+
+#include "event_contracts.h"

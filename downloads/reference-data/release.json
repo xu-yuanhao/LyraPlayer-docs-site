@@ -3,6 +3,6 @@
   "interface_version": 2,
   "documentation_version": "0.1.0",
   "status": "preview",
-  "host_version": "acebbee",
+  "host_version": "9452769",
   "note": "公开插件契约预览；配置和接口以所安装宿主能力查询为准。"
 }

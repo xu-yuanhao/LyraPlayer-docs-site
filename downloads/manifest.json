@@ -4,16 +4,17 @@
     "interface_version": 2,
     "documentation_version": "0.1.0",
     "status": "preview",
-    "host_version": "acebbee",
+    "host_version": "9452769",
     "note": "公开插件契约预览；配置和接口以所安装宿主能力查询为准。"
   },
   "files": {
     "reference-data/publication.json": "82a2e3bdf82ec5d78715fbceac4e020192aa0003021ee195b60d8d3562972131",
-    "reference-data/release.json": "5bac412ed0fbe1a06380793e3501e538fa21a3264ab3cd4ef714809c1db6bc1c",
+    "reference-data/release.json": "2d14fa49b6360c4297602dcc78c89b4e18ad52fd7d999243a6801e25b85ea3e5",
     "reference-data/services.json": "f49cf372594b65cece901130a88073659e57f18d57c18a312e90a5e7a084a633",
     "reference-data/ui.toml": "b5fe486dc753f517b582aeb5b099af46ea8196fc9ddf8d3ad6d45a6dc4442097",
     "reference-data/zh-Hans.toml": "5c86eb7e1c2cf593a519bd72ff5a1bf704ea27ac840e408f52929441b0e5cbd0",
-    "sdk/include/plugin/contracts.h": "e3525b99e6ce5dbc3a43862e709aa8954cc26c7260a29b3931d68cf7350e5e2d",
+    "sdk/include/plugin/contracts.h": "96c9cc3fd0114c29f1d70fbf03eeb89d1e47acf803ee2673ff6d1f59301c4975",
+    "sdk/include/plugin/event_contracts.h": "4a34f4374fcbff34aefeb079873e4371a833575efb85d6f2846fcd2a1db4078a",
     "sdk/include/plugin/lyra_plugin.h": "7ddb617a414a459ac8ba1f9f3a29a965da2d697752e721ed6227f01b8951bcf0",
     "sdk/include/plugin/media_contracts.h": "275467a96ec7448bb418d82418ddf89b210073f369cda429a8dd8f0cc2f10e07",
     "examples/root.c": "825f1a13d7cd021dbdef01b96bd54ac2665b7e06895f59073f56e1ed68f2500a",
@@ -670,6 +671,10 @@
     [
       "LYRA_INTERFACE_MEDIA_PROVIDER",
       "14"
+    ],
+    [
+      "LYRA_INTERFACE_PLAYBACK_OBSERVER",
+      "15"
     ]
   ],
   "services": {
