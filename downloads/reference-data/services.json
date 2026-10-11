@@ -1,0 +1,149 @@
+{
+  "about": {
+    "config_tables": [
+      "about"
+    ]
+  },
+  "artwork": {
+    "config_tables": [
+      "artwork"
+    ]
+  },
+  "background": {
+    "config_tables": []
+  },
+  "controls": {
+    "config_tables": []
+  },
+  "cover": {
+    "config_tables": []
+  },
+  "font": {
+    "config_tables": []
+  },
+  "frame": {
+    "config_tables": []
+  },
+  "library": {
+    "config_tables": []
+  },
+  "library.mediastore": {
+    "config_tables": []
+  },
+  "lyric-source": {
+    "config_tables": []
+  },
+  "lyrics": {
+    "config_tables": []
+  },
+  "payment-confirm-page": {
+    "config_tables": [
+      "support"
+    ]
+  },
+  "payment-provider": {
+    "config_tables": []
+  },
+  "playback": {
+    "config_tables": []
+  },
+  "playback-memory": {
+    "config_tables": []
+  },
+  "playback-rules": {
+    "config_tables": []
+  },
+  "plugin-catalog": {
+    "config_tables": [
+      "plugin_repository"
+    ]
+  },
+  "plugin-manager": {
+    "config_tables": [
+      "plugin_install"
+    ]
+  },
+  "plugin-market": {
+    "config_tables": [
+      "plugin_repository",
+      "plugin_market"
+    ]
+  },
+  "plugin-search": {
+    "config_tables": [
+      "plugin_repository"
+    ]
+  },
+  "search": {
+    "config_tables": []
+  },
+  "search.vertical-reveal": {
+    "config_tables": []
+  },
+  "settings": {
+    "config_tables": [
+      "settings",
+      "plugin_settings",
+      "shell",
+      "system",
+      "artwork",
+      "player"
+    ]
+  },
+  "sheet": {
+    "config_tables": []
+  },
+  "sheet.bottom-reveal": {
+    "config_tables": []
+  },
+  "shell": {
+    "config_tables": []
+  },
+  "shell.attached-reveal": {
+    "config_tables": []
+  },
+  "source": {
+    "config_tables": [
+      "search",
+      "profile"
+    ]
+  },
+  "style-picker": {
+    "config_tables": []
+  },
+  "style.bloom": {
+    "config_tables": []
+  },
+  "style.ember": {
+    "config_tables": []
+  },
+  "support-page": {
+    "config_tables": [
+      "support"
+    ]
+  },
+  "system-bars": {
+    "config_tables": [
+      "system"
+    ]
+  },
+  "theme": {
+    "config_tables": [
+      "theme"
+    ]
+  },
+  "title": {
+    "config_tables": []
+  },
+  "profile": {
+    "config_tables": [
+      "profile",
+      "profile_copy"
+    ]
+  },
+  "profile-classification": {
+    "config_tables": [
+      "profile"
+    ]
+  }
+}

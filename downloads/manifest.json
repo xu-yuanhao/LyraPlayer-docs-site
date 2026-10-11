@@ -1,0 +1,805 @@
+{
+  "release": {
+    "sdk_abi": 2,
+    "interface_version": 2,
+    "documentation_version": "0.1.0",
+    "status": "preview",
+    "host_version": "96e0538",
+    "note": "公开插件契约预览；配置和接口以所安装宿主能力查询为准。"
+  },
+  "files": {
+    "reference-data/publication.json": "82a2e3bdf82ec5d78715fbceac4e020192aa0003021ee195b60d8d3562972131",
+    "reference-data/release.json": "e3ac4b50f02370983028f4609e47d210ce0c07d090476ffacba1070fadcc3bec",
+    "reference-data/services.json": "15be135d57f6f4022bd890adc9f15fb78645a17c154d8c552ae3ba19ed641f32",
+    "reference-data/ui.toml": "38f1baa030178ab35c65f793599a98ed5846ce6bfe104e4bd507710f12d687c8",
+    "reference-data/zh-Hans.toml": "5c86eb7e1c2cf593a519bd72ff5a1bf704ea27ac840e408f52929441b0e5cbd0",
+    "sdk/include/plugin/contracts.h": "ffb78de924348ac50f7a9d7d5f8a1ed2cc49fc0179cd471460669f4a32aff9aa",
+    "sdk/include/plugin/lyra_plugin.h": "7ddb617a414a459ac8ba1f9f3a29a965da2d697752e721ed6227f01b8951bcf0",
+    "examples/root.c": "825f1a13d7cd021dbdef01b96bd54ac2665b7e06895f59073f56e1ed68f2500a",
+    "examples/rules.c": "fa3aa127d45e07dcb189f2efbc80268270717111effe0790f86130348b11f971",
+    "examples/style.c": "1a4a07b01e284ffe633885df858d228fa8f9505dae005e48de467bdf9cf420c8"
+  },
+  "config": {
+    "ui": {
+      "app": [
+        "shell_id",
+        "search_id",
+        "library_id",
+        "sheet_id",
+        "locale"
+      ],
+      "style": [
+        "active",
+        "count",
+        "long_press_ms",
+        "picker_scale",
+        "picker_side_scale",
+        "picker_gap_dp",
+        "picker_enter_ms",
+        "ripple_delay_ms",
+        "ripple_cancel_ms",
+        "ripple_strength",
+        "picker_scrim",
+        "picker_fling_dp",
+        "picker_stiffness",
+        "picker_damping",
+        "picker_drag_fraction",
+        "picker_drag_gain",
+        "picker_fling_step",
+        "picker_overscroll"
+      ],
+      "logo": [
+        "duration_ms",
+        "amplitude",
+        "band_width",
+        "vertical_arm",
+        "diagonal_arm",
+        "arrive_end",
+        "hold_end",
+        "damping",
+        "cycles",
+        "center_x",
+        "center_y",
+        "outer_x",
+        "outer_y",
+        "view_box",
+        "display_dp",
+        "blue0",
+        "blue1",
+        "red0",
+        "red1",
+        "yellow0",
+        "yellow1"
+      ],
+      "shell": [
+        "drawer_width_fraction",
+        "drawer_max_width_dp",
+        "foreground_open_scale",
+        "positional_threshold",
+        "spring_damping",
+        "spring_stiffness",
+        "fling_dp_per_s",
+        "page_fling_dp_per_s",
+        "close_fling_dp_per_s",
+        "cross_rubber_dp",
+        "surface",
+        "corner_radius_dp",
+        "corner_follows_device",
+        "square_corner_dp",
+        "frost_blur_dp",
+        "frost_feather_dp",
+        "frost_wash"
+      ],
+      "dock": [
+        "height_dp",
+        "inset_x_dp",
+        "inset_b_dp",
+        "icon_dp",
+        "min_corner_dp",
+        "blur_dp",
+        "wash",
+        "inactive"
+      ],
+      "search": [
+        "reveal_height_fraction",
+        "minimum_visible_foreground_dp",
+        "foreground_open_scale",
+        "positional_threshold",
+        "fling_dp_per_s",
+        "spring_damping",
+        "spring_stiffness",
+        "surface",
+        "field_height_dp",
+        "field_radius_dp",
+        "field_surface",
+        "horizontal_padding_dp",
+        "top_padding_dp",
+        "top_gesture_dp",
+        "gesture_cover_fraction",
+        "result_limit",
+        "fuzzy_gap",
+        "fuzzy_miss",
+        "lyric_chars",
+        "index_gap_ms",
+        "row_height_dp"
+      ],
+      "sheet": [
+        "reveal_height_fraction",
+        "minimum_visible_foreground_dp",
+        "foreground_open_scale",
+        "positional_threshold",
+        "fling_dp_per_s",
+        "spring_damping",
+        "spring_stiffness",
+        "surface",
+        "frost_to_surface",
+        "row_height_dp",
+        "title_sp",
+        "row_sp",
+        "pad_dp",
+        "top_pad_dp",
+        "menu_radius_dp",
+        "menu_surface",
+        "mode"
+      ],
+      "player": [
+        "progress_relative_drag",
+        "marquee_fade_dp",
+        "marquee_velocity_dp",
+        "marquee_delay_ms",
+        "marquee_texture_width_px",
+        "background",
+        "base",
+        "ink",
+        "title",
+        "accent",
+        "secondary",
+        "button_bg",
+        "button_fg",
+        "button_pad_h_dp",
+        "button_pad_v_dp",
+        "button_radius_dp",
+        "button_text_sp",
+        "logo_gap_dp",
+        "title_sp",
+        "artist_sp",
+        "duration_sp",
+        "compact_cover_dp",
+        "compact_side_gap_dp",
+        "metadata_line_gap_dp",
+        "clock_fallback_dp",
+        "clock_lyric_gap_dp",
+        "side_text_cover_dp",
+        "side_text_gap_dp",
+        "side_pad_dp",
+        "header_sp",
+        "row_height_dp",
+        "row_title_sp",
+        "row_meta_sp",
+        "row_line_gap_dp",
+        "group_indent_dp",
+        "group_chevron_dp",
+        "cover_dp",
+        "cover_radius_dp",
+        "cover_gap_dp",
+        "cover_inset_dp",
+        "art_fraction",
+        "art_radius_dp",
+        "art_top_dp",
+        "cover_to_text_dp",
+        "paused_scale",
+        "progress_height_dp",
+        "progress_touch_dp",
+        "progress_gap_dp",
+        "clock_gap_dp",
+        "progress_active_alpha",
+        "progress_idle_alpha",
+        "empty_cover_alpha",
+        "control_touch_dp",
+        "control_icon_dp",
+        "control_gap_dp",
+        "lyric_line_gap_dp",
+        "lyric_caption_gap_dp",
+        "lyric_follow_ms",
+        "lyric_chain_stiffness",
+        "lyric_chain_damping",
+        "lyric_chain_coupling",
+        "lyric_chain_falloff",
+        "lyric_chain_response",
+        "lyric_anchor_dp",
+        "lyric_top_fade_dp",
+        "lyric_mini_anchor_dp",
+        "lyric_mini_top_fade_dp",
+        "lyric_veil_dp",
+        "lyric_main_mini_sp",
+        "lyric_main_expanded_sp",
+        "lyric_translation_mini_sp",
+        "lyric_translation_expanded_sp",
+        "lyric_phonetic_sp",
+        "lyric_bg_sp",
+        "lyric_bg_mini_sp",
+        "lyric_bg_blur_dp",
+        "lyric_ruby_sp",
+        "lyric_ruby_em",
+        "lyric_resume_ms",
+        "lyric_breath_threshold_ms",
+        "lyric_breath_count",
+        "lyric_breath_size_dp",
+        "lyric_breath_margin_dp",
+        "lyric_breath_line_dp",
+        "lyric_breath_enter_ms",
+        "lyric_breath_dip_ms",
+        "lyric_breath_still_ms",
+        "lyric_breath_exit_ms",
+        "cover_placeholder",
+        "touch_slop_dp",
+        "settle_px",
+        "lyric_lift_px",
+        "lyric_lift_ms"
+      ],
+      "flow": [
+        "fallback0",
+        "fallback1",
+        "fallback2",
+        "minimum_artwork_luma",
+        "canvas_dp",
+        "sigma",
+        "top_num",
+        "top_den",
+        "bottom_num",
+        "bottom_den",
+        "container_num",
+        "container_den",
+        "saturation",
+        "dim",
+        "morph_ms",
+        "morph_accent_ms",
+        "cover_morph_ms"
+      ],
+      "scroll": [
+        "friction_per_s",
+        "friction_floor_per_s",
+        "friction_ref_dp_per_s",
+        "lift_gain",
+        "lift_ref_dp_per_s",
+        "stop_dp_per_s",
+        "max_dp_per_s",
+        "min_fling_dp_per_s",
+        "rubber_dp",
+        "rubber_scale",
+        "stiffness",
+        "damping",
+        "settle_px",
+        "impact_retain",
+        "impact_dp_per_s",
+        "chain_retain",
+        "chain_window_s",
+        "velocity_window_ms"
+      ],
+      "quality": [
+        "budget_ratio",
+        "budget_120_ms",
+        "budget_90_ms",
+        "budget_60_ms",
+        "text_cache_mb",
+        "text_batch_jobs"
+      ],
+      "playback": [
+        "checkpoint_ms",
+        "buffer_capacity_ms",
+        "buffer_bursts"
+      ],
+      "rhythm": [
+        "bass_hz",
+        "wide_hz",
+        "hop_ms",
+        "accent_gain",
+        "strength",
+        "dilation",
+        "displacement",
+        "brightness",
+        "highlights",
+        "speed_boost",
+        "lobe_scale",
+        "contrast",
+        "saturation",
+        "size_exchange",
+        "attack_ms",
+        "release_ms",
+        "handoff_hold_ms",
+        "track_blend_ms"
+      ],
+      "cover_fx": [
+        "sigma",
+        "wave_frequency",
+        "push",
+        "color_aberration",
+        "glow",
+        "noise_warp",
+        "pinch",
+        "pinch_attack_ms",
+        "pinch_release_ms",
+        "elevation_dp",
+        "compact_elevation_dp",
+        "shadow_alpha",
+        "shadow_blur",
+        "rim_dark",
+        "rim_light",
+        "rim_width_dp"
+      ],
+      "system": [
+        "hide_status_bar",
+        "hide_navigation_bar"
+      ],
+      "settings": [
+        "padding_dp",
+        "gap_dp",
+        "switch_width_dp",
+        "switch_height_dp",
+        "switch_thumb_dp",
+        "switch_off_alpha",
+        "install_button_radius_dp"
+      ],
+      "about": [
+        "avatar_url",
+        "avatar_timeout_ms",
+        "logo_dp",
+        "avatar_dp",
+        "hero_gap_dp",
+        "section_gap_dp",
+        "block_gap_dp",
+        "name_sp",
+        "slogan_sp",
+        "version_sp",
+        "section_sp",
+        "body_sp",
+        "meta_sp",
+        "license_row_dp",
+        "avatar_gap_dp",
+        "thanks_gap_dp",
+        "thanks_quote_sp",
+        "signature_asset",
+        "signature_width_dp",
+        "hero_top_dp",
+        "logo_fraction",
+        "rule_alpha",
+        "rule_dp",
+        "quote_inset_dp"
+      ],
+      "artwork": [
+        "enabled",
+        "prefer_embedded",
+        "embedded",
+        "sidecars",
+        "pause_with_music",
+        "directories",
+        "max_embedded_mib"
+      ],
+      "plugin_install": [
+        "max_bytes",
+        "max_files"
+      ],
+      "support": [
+        "amounts_fen",
+        "product_sp",
+        "body_sp",
+        "amount_sp",
+        "gap_dp",
+        "option_dp",
+        "button_dp",
+        "notice_ms"
+      ],
+      "theme": [
+        "follow_system",
+        "dark",
+        "light_surface",
+        "dark_surface",
+        "light_ink",
+        "dark_ink",
+        "light_secondary",
+        "dark_secondary",
+        "light_action",
+        "dark_action",
+        "light_action_ink",
+        "dark_action_ink",
+        "tint_light",
+        "tint_dark",
+        "transition_ms"
+      ],
+      "plugin_repository": [
+        "sources",
+        "public_key",
+        "index_limit_bytes",
+        "archive_limit_bytes",
+        "timeout_ms",
+        "maximum_rows",
+        "exact_score",
+        "prefix_score",
+        "substring_score",
+        "description_score"
+      ],
+      "plugin_market": [
+        "action_width_dp",
+        "action_height_dp",
+        "markdown_lines_per_block",
+        "estimated_line_height"
+      ],
+      "profile": [
+        "sidecar_extensions",
+        "max_lyric_file_bytes",
+        "genre_rules",
+        "genre_numbers",
+        "language_scripts",
+        "language_words",
+        "language_labels",
+        "unknown_genre",
+        "unknown_language",
+        "unknown_folder",
+        "latin_fallback",
+        "word_weight",
+        "minimum_word_score",
+        "script_fraction",
+        "kana_priority"
+      ]
+    },
+    "zh-Hans": {
+      "text": [
+        "enter",
+        "library_empty",
+        "library_title",
+        "library_artist",
+        "library_album",
+        "library_profile",
+        "unknown_album",
+        "settings_title",
+        "search_placeholder",
+        "search_empty",
+        "sheet_title",
+        "mode_order",
+        "mode_repeat",
+        "mode_one",
+        "mode_shuffle",
+        "unknown_artist",
+        "unknown_title",
+        "track_count_suffix",
+        "locale_name",
+        "bool_on",
+        "bool_off",
+        "style_bloom",
+        "style_ember"
+      ],
+      "settings": [
+        "shell_width",
+        "shell_scale",
+        "search_height",
+        "corner",
+        "locale",
+        "shell_plugin",
+        "config_dir"
+      ],
+      "plugin_settings": [
+        "builtin",
+        "external",
+        "install",
+        "progress_relative",
+        "hide_status",
+        "hide_navigation",
+        "artwork_motion",
+        "artwork_prefer",
+        "artwork_embedded_first",
+        "artwork_sidecar_first",
+        "install_hint",
+        "empty",
+        "active",
+        "inactive",
+        "overridden",
+        "unsupported",
+        "installing",
+        "installed",
+        "invalid",
+        "exists",
+        "io_error",
+        "write_error",
+        "back",
+        "forward",
+        "about"
+      ],
+      "about": [
+        "app_name",
+        "slogan",
+        "developer_section",
+        "developer_name",
+        "developer_handle",
+        "thanks_section",
+        "thanks_p0",
+        "thanks_p1",
+        "thanks_p2",
+        "licenses_section",
+        "license_note",
+        "ffmpeg",
+        "ffmpeg_license",
+        "pugixml",
+        "pugixml_license",
+        "cjson",
+        "cjson_license",
+        "ripple",
+        "ripple_license",
+        "solar",
+        "solar_license",
+        "llvm",
+        "llvm_license",
+        "unicode",
+        "unicode_license",
+        "thanks_0_name",
+        "thanks_0_quote",
+        "thanks_1_name",
+        "thanks_1_quote",
+        "thanks_2_name",
+        "thanks_2_quote",
+        "thanks_3_name",
+        "thanks_3_quote",
+        "thanks_4_name",
+        "thanks_4_quote",
+        "thanks_5_name",
+        "thanks_5_quote",
+        "thanks_6_name",
+        "thanks_6_quote",
+        "thanks_7_name",
+        "thanks_7_quote",
+        "thanks_8_name",
+        "thanks_8_quote",
+        "thanks_9_name",
+        "thanks_9_quote",
+        "thanks_10_name",
+        "thanks_10_quote",
+        "thanks_11_name",
+        "thanks_11_quote"
+      ],
+      "support": [
+        "entry",
+        "title",
+        "confirm",
+        "product",
+        "body0",
+        "body1",
+        "body2",
+        "amount",
+        "method",
+        "alipay",
+        "action",
+        "pay",
+        "unavailable",
+        "failed",
+        "pending",
+        "cancelled"
+      ],
+      "plugin_market": [
+        "title",
+        "refresh",
+        "install",
+        "detail",
+        "update",
+        "uninstall",
+        "fields",
+        "installed",
+        "downloading",
+        "result",
+        "empty",
+        "loading",
+        "unavailable",
+        "installing",
+        "busy",
+        "fallback",
+        "failed"
+      ],
+      "profile_copy": [
+        "genre",
+        "folder",
+        "language"
+      ]
+    }
+  },
+  "interfaces": [
+    [
+      "LYRA_INTERFACE_PLAYBACK",
+      "1"
+    ],
+    [
+      "LYRA_INTERFACE_LYRICS",
+      "2"
+    ],
+    [
+      "LYRA_INTERFACE_STYLES",
+      "3"
+    ],
+    [
+      "LYRA_INTERFACE_CONFIG",
+      "4"
+    ],
+    [
+      "LYRA_INTERFACE_RULES",
+      "5"
+    ],
+    [
+      "LYRA_INTERFACE_PLAYBACK_PROVIDER",
+      "6"
+    ],
+    [
+      "LYRA_INTERFACE_CATALOG",
+      "7"
+    ],
+    [
+      "LYRA_INTERFACE_MODES",
+      "8"
+    ],
+    [
+      "LYRA_INTERFACE_CONFIG_SCHEMA",
+      "9"
+    ],
+    [
+      "LYRA_INTERFACE_VERSION",
+      "2"
+    ],
+    [
+      "LYRA_INTERFACE_PLUGIN_CATALOG",
+      "10"
+    ],
+    [
+      "LYRA_INTERFACE_PLUGIN_DETAILS",
+      "11"
+    ],
+    [
+      "LYRA_INTERFACE_CLASSIFICATION_RULES",
+      "12"
+    ]
+  ],
+  "services": {
+    "about": {
+      "config_tables": [
+        "about"
+      ]
+    },
+    "artwork": {
+      "config_tables": [
+        "artwork"
+      ]
+    },
+    "background": {
+      "config_tables": []
+    },
+    "controls": {
+      "config_tables": []
+    },
+    "cover": {
+      "config_tables": []
+    },
+    "font": {
+      "config_tables": []
+    },
+    "frame": {
+      "config_tables": []
+    },
+    "library": {
+      "config_tables": []
+    },
+    "library.mediastore": {
+      "config_tables": []
+    },
+    "lyric-source": {
+      "config_tables": []
+    },
+    "lyrics": {
+      "config_tables": []
+    },
+    "payment-confirm-page": {
+      "config_tables": [
+        "support"
+      ]
+    },
+    "payment-provider": {
+      "config_tables": []
+    },
+    "playback": {
+      "config_tables": []
+    },
+    "playback-memory": {
+      "config_tables": []
+    },
+    "playback-rules": {
+      "config_tables": []
+    },
+    "plugin-catalog": {
+      "config_tables": [
+        "plugin_repository"
+      ]
+    },
+    "plugin-manager": {
+      "config_tables": [
+        "plugin_install"
+      ]
+    },
+    "plugin-market": {
+      "config_tables": [
+        "plugin_repository",
+        "plugin_market"
+      ]
+    },
+    "plugin-search": {
+      "config_tables": [
+        "plugin_repository"
+      ]
+    },
+    "search": {
+      "config_tables": []
+    },
+    "search.vertical-reveal": {
+      "config_tables": []
+    },
+    "settings": {
+      "config_tables": [
+        "settings",
+        "plugin_settings",
+        "shell",
+        "system",
+        "artwork",
+        "player"
+      ]
+    },
+    "sheet": {
+      "config_tables": []
+    },
+    "sheet.bottom-reveal": {
+      "config_tables": []
+    },
+    "shell": {
+      "config_tables": []
+    },
+    "shell.attached-reveal": {
+      "config_tables": []
+    },
+    "source": {
+      "config_tables": [
+        "search",
+        "profile"
+      ]
+    },
+    "style-picker": {
+      "config_tables": []
+    },
+    "style.bloom": {
+      "config_tables": []
+    },
+    "style.ember": {
+      "config_tables": []
+    },
+    "support-page": {
+      "config_tables": [
+        "support"
+      ]
+    },
+    "system-bars": {
+      "config_tables": [
+        "system"
+      ]
+    },
+    "theme": {
+      "config_tables": [
+        "theme"
+      ]
+    },
+    "title": {
+      "config_tables": []
+    },
+    "profile": {
+      "config_tables": [
+        "profile",
+        "profile_copy"
+      ]
+    },
+    "profile-classification": {
+      "config_tables": [
+        "profile"
+      ]
+    }
+  }
+}
