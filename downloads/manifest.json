@@ -10,11 +10,12 @@
   "files": {
     "reference-data/publication.json": "82a2e3bdf82ec5d78715fbceac4e020192aa0003021ee195b60d8d3562972131",
     "reference-data/release.json": "e3ac4b50f02370983028f4609e47d210ce0c07d090476ffacba1070fadcc3bec",
-    "reference-data/services.json": "15be135d57f6f4022bd890adc9f15fb78645a17c154d8c552ae3ba19ed641f32",
-    "reference-data/ui.toml": "38f1baa030178ab35c65f793599a98ed5846ce6bfe104e4bd507710f12d687c8",
+    "reference-data/services.json": "f49cf372594b65cece901130a88073659e57f18d57c18a312e90a5e7a084a633",
+    "reference-data/ui.toml": "b5fe486dc753f517b582aeb5b099af46ea8196fc9ddf8d3ad6d45a6dc4442097",
     "reference-data/zh-Hans.toml": "5c86eb7e1c2cf593a519bd72ff5a1bf704ea27ac840e408f52929441b0e5cbd0",
-    "sdk/include/plugin/contracts.h": "ffb78de924348ac50f7a9d7d5f8a1ed2cc49fc0179cd471460669f4a32aff9aa",
+    "sdk/include/plugin/contracts.h": "e3525b99e6ce5dbc3a43862e709aa8954cc26c7260a29b3931d68cf7350e5e2d",
     "sdk/include/plugin/lyra_plugin.h": "7ddb617a414a459ac8ba1f9f3a29a965da2d697752e721ed6227f01b8951bcf0",
+    "sdk/include/plugin/media_contracts.h": "275467a96ec7448bb418d82418ddf89b210073f369cda429a8dd8f0cc2f10e07",
     "examples/root.c": "825f1a13d7cd021dbdef01b96bd54ac2665b7e06895f59073f56e1ed68f2500a",
     "examples/rules.c": "fa3aa127d45e07dcb189f2efbc80268270717111effe0790f86130348b11f971",
     "examples/style.c": "1a4a07b01e284ffe633885df858d228fa8f9505dae005e48de467bdf9cf420c8"
@@ -440,6 +441,16 @@
         "minimum_word_score",
         "script_fraction",
         "kana_priority"
+      ],
+      "media": [
+        "item_limit",
+        "text_bytes",
+        "request_limit",
+        "pending_bytes",
+        "resource_bytes",
+        "resource_timeout_ms",
+        "resource_workers",
+        "resource_chunk_bytes"
       ]
     },
     "zh-Hans": {
@@ -651,6 +662,14 @@
     [
       "LYRA_INTERFACE_CLASSIFICATION_RULES",
       "12"
+    ],
+    [
+      "LYRA_INTERFACE_MEDIA_CONTEXT",
+      "13"
+    ],
+    [
+      "LYRA_INTERFACE_MEDIA_PROVIDER",
+      "14"
     ]
   ],
   "services": {
@@ -760,7 +779,8 @@
     "source": {
       "config_tables": [
         "search",
-        "profile"
+        "profile",
+        "media"
       ]
     },
     "style-picker": {

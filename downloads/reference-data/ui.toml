@@ -428,3 +428,13 @@ word_weight = 2
 minimum_word_score = 2
 script_fraction = 0.6
 kana_priority = 1
+
+[media]
+item_limit = 512
+text_bytes = 4194304
+request_limit = 32
+pending_bytes = 8388608
+resource_bytes = 134217728
+resource_timeout_ms = 30000
+resource_workers = 3
+resource_chunk_bytes = 16384

@@ -241,3 +241,5 @@ typedef struct LyraClassificationRulesV2 {
                   int has_lyrics, char *, int);
   int (*language_label)(void *, const char *, char *, int);
 } LyraClassificationRulesV2;
+
+#include "media_contracts.h"

@@ -105,7 +105,8 @@
   "source": {
     "config_tables": [
       "search",
-      "profile"
+      "profile",
+      "media"
     ]
   },
   "style-picker": {
