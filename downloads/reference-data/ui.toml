@@ -261,6 +261,7 @@ chain_window_s = 0.7
 velocity_window_ms = 24
 
 [quality]
+initial_frame_ms = 16
 budget_ratio = 0.72
 budget_120_ms = 6
 budget_90_ms = 8
@@ -378,6 +379,12 @@ button_dp = 52
 notice_ms = 2800
 
 [theme]
+status_picker_inset = 0.5
+status_panel_fraction = 0.55
+status_cover_dim = 0.75
+status_initial_luma = 0.55
+status_light_luma = 0.42
+status_dark_luma = 0.62
 follow_system = true
 dark = false
 light_surface = "#F8F9FB"
