@@ -1,6 +1,6 @@
 #pragma once
 #include <stdint.h>
-// Optional interfaces: existing ABI 2 structures are unchanged.
+// Optional interfaces: existing ABI 3 structures are unchanged.
 #define LYRA_INTERFACE_MEDIA_CONTEXT 13u
 #define LYRA_INTERFACE_MEDIA_PROVIDER 14u
 #define LYRA_MEDIA_SEARCH 1u
@@ -12,58 +12,58 @@
 #define LYRA_MEDIA_COMPLETE 2u
 #define LYRA_MEDIA_US_PER_MS 1000
 
-typedef struct LyraMediaDescriptorV2 {
+typedef struct LyraMediaDescriptorV3 {
     uint32_t size;
     const char *uid, *title, *artist, *album;
     const char *genre, *folder, *audio_uri, *cover_uri, *lyrics_uri, *lyrics_text;
     int64_t duration_us, cover_key;
     // Optional provenance for collections containing items from other providers.
     const char *origin_provider, *origin_uid;
-} LyraMediaDescriptorV2;
-typedef struct LyraMediaRequestV2 {
+} LyraMediaDescriptorV3;
+typedef struct LyraMediaRequestV3 {
     uint32_t size, kind;
     uint64_t request_id, query_revision;
     const char *collection, *query, *cursor, *uid;
-} LyraMediaRequestV2;
-typedef struct LyraMediaBatchV2 {
+} LyraMediaRequestV3;
+typedef struct LyraMediaBatchV3 {
     uint32_t size, flags;
     uint64_t request_id;
-    const LyraMediaDescriptorV2 *items;
+    const LyraMediaDescriptorV3 *items;
     uint32_t count;
     const char *cursor;
     int32_t error;
-} LyraMediaBatchV2;
-typedef struct LyraMediaResourceV2 {
+} LyraMediaBatchV3;
+typedef struct LyraMediaResourceV3 {
     uint32_t size;
     uint64_t request_id;
     int32_t fd, error;
     const char *uri, *headers_json, *mime;
-} LyraMediaResourceV2;
+} LyraMediaResourceV3;
 // Publishing copies metadata before returning. A resource fd is consumed even
 // when a result is rejected as stale. Never publish while shutdown is returning.
-typedef struct LyraMediaSinkV2 {
+typedef struct LyraMediaSinkV3 {
     uint32_t size, version;
     void *user;
-    int (*publish)(void *, const LyraMediaBatchV2 *);
-    int (*resolved)(void *, const LyraMediaResourceV2 *);
-} LyraMediaSinkV2;
-typedef struct LyraMediaProviderV2 {
+    int (*publish)(void *, const LyraMediaBatchV3 *);
+    int (*resolved)(void *, const LyraMediaResourceV3 *);
+} LyraMediaSinkV3;
+typedef struct LyraMediaProviderV3 {
     uint32_t size, version;
     void *user;
     const char *id;
     // Request/cancel are frame-thread calls; publish/resolved can run on workers.
     // Copy request strings before request returns. The sink table remains valid
     // until provider shutdown returns; cancelled request IDs cannot publish.
-    int (*request)(void *, const LyraMediaRequestV2 *, const LyraMediaSinkV2 *);
+    int (*request)(void *, const LyraMediaRequestV3 *, const LyraMediaSinkV3 *);
     void (*cancel)(void *, uint64_t);
-} LyraMediaProviderV2;
-typedef struct LyraMediaCollectionStateV2 {
+} LyraMediaProviderV3;
+typedef struct LyraMediaCollectionStateV3 {
     uint32_t size;
     int32_t error;
     uint32_t complete;
     const char *cursor;
-} LyraMediaCollectionStateV2;
-typedef struct LyraMediaContextV2 {
+} LyraMediaCollectionStateV3;
+typedef struct LyraMediaContextV3 {
     uint32_t size, version;
     void *user;
     int (*provider_count)(void *);
@@ -78,15 +78,15 @@ typedef struct LyraMediaContextV2 {
     uint64_t (*revision)(void *, uint64_t);
     int (*count)(void *, uint64_t);
     // Output strings are borrowed until the next frame boundary/revision.
-    int (*item)(void *, uint64_t, int, LyraMediaDescriptorV2 *);
+    int (*item)(void *, uint64_t, int, LyraMediaDescriptorV3 *);
     int (*select)(void *, uint64_t, int);
     // 1 ready, 0 pending, -1 invalid. Ready transfers fd; copy strings before cancel.
-    int (*take_resource)(void *, uint64_t, LyraMediaResourceV2 *);
-    int (*current)(void *, LyraMediaDescriptorV2 *);
+    int (*take_resource)(void *, uint64_t, LyraMediaResourceV3 *);
+    int (*current)(void *, LyraMediaDescriptorV3 *);
     int (*queue_count)(void *);
-    int (*queue_item)(void *, int, LyraMediaDescriptorV2 *);
+    int (*queue_item)(void *, int, LyraMediaDescriptorV3 *);
     int (*queue_select)(void *, int);
     // Cursor/status strings have the same borrowed lifetime as item strings.
-    int (*collection_state)(void *, uint64_t, LyraMediaCollectionStateV2 *);
-} LyraMediaContextV2;
+    int (*collection_state)(void *, uint64_t, LyraMediaCollectionStateV3 *);
+} LyraMediaContextV3;
 #define LYRA_MEDIA_DECIMAL_BASE 10

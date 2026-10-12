@@ -1,34 +1,37 @@
 #include "plugin/lyra_plugin.h"
 #include <string.h>
-static const LyraPlaybackInterfaceV2 *playback;
+static const LyraPlaybackInterfaceV3 *playback;
 static float box_x, box_y, box_w, box_h;
-static int paint(void *user, const LyraHostV2 *host, int64_t now, float x, float y, float w, float h) {
+static int paint(void *user, const LyraHostV3 *host, int64_t now, float x, float y, float w, float h) {
     (void)user;
     (void)now;
     box_x = x;
     box_y = y;
     box_w = w;
     box_h = h;
-    LyraPlaybackSnapshotV2 current = {0};
+    LyraPlaybackSnapshotV3 current = {0};
     current.size = sizeof(current);
     playback->snapshot(playback->user, &current);
     LyraSolid background = {x, y, w, h, 0, .16f, .16f, .16f, 1};
-    LyraGlyphCmd title = {x + 24, y + h * .4f, 24, 1, 1, 1, 1, "Third style", 0};
-    LyraSceneV2 scene = {0};
+    LyraTextLayerV3 title = {0};
+    title.size = sizeof(title); title.text = "Third style";
+    title.x = x + 24; title.y = y + h * .4f; title.text_size = 24;
+    title.r = title.g = title.b = title.a = title.opacity = 1;
+    LyraSceneV3 scene = {0};
     scene.size = sizeof(scene);
     scene.solids = &background;
     scene.solid_count = 1;
-    scene.glyphs = &title;
-    scene.glyph_count = 1;
+    scene.text_layers = &title;
+    scene.text_layer_count = 1;
     host->submit(host->user, &scene);
     return 0;
 }
-static int input(void *user, const LyraHostV2 *host, const LyraInput *input) {
+static int input(void *user, const LyraHostV3 *host, const LyraInput *input) {
     (void)user;
     if (input->action != LYRA_INPUT_UP || input->x < box_x || input->x > box_x + box_w ||
         input->y < box_y + box_h * .6f || input->y > box_y + box_h)
         return 0;
-    LyraPlaybackCommandV2 command = {0};
+    LyraPlaybackCommandV3 command = {0};
     command.size = sizeof(command);
     command.kind = LYRA_PLAYBACK_TOGGLE;
     playback->command(playback->user, &command);
@@ -39,11 +42,11 @@ static int count(void *user) {
     (void)user;
     return 1;
 }
-static int describe(void *user, int32_t index, LyraStyleDescriptionV2 *out) {
+static int describe(void *user, int32_t index, LyraStyleDescriptionV3 *out) {
     (void)user;
-    if (index != 0 || !out || out->size < sizeof(*out))
+    if (index != 0 || !out || out->size != sizeof(*out))
         return -1;
-    *out = (LyraStyleDescriptionV2){0};
+    *out = (LyraStyleDescriptionV3){0};
     out->size = sizeof(*out);
     strcpy(out->id, "example.third");
     strcpy(out->label, "Third style");
@@ -51,20 +54,20 @@ static int describe(void *user, int32_t index, LyraStyleDescriptionV2 *out) {
     out->input = input;
     return 0;
 }
-static const LyraStylesInterfaceV2 styles = {sizeof(styles), 2, 0, count, describe};
-static const void *interface(const LyraHostV2 *host, uint32_t id, uint32_t version, uint32_t size) {
+static const LyraStylesInterfaceV3 styles = {sizeof(styles), LYRA_INTERFACE_VERSION, 0, count, describe};
+static const void *interface(const LyraHostV3 *host, uint32_t id, uint32_t version, uint32_t size) {
     (void)host;
-    return id == LYRA_INTERFACE_STYLES && version == 2 && size <= sizeof(styles) ? &styles : 0;
+    return id == LYRA_INTERFACE_STYLES && version == LYRA_INTERFACE_VERSION && size == sizeof(styles) ? &styles : 0;
 }
-__attribute__((visibility("default"))) int lyra_plugin_init(const LyraHostV2 *host, LyraPluginV2 *out) {
-    if (!host || host->abi != 2 || host->size < sizeof(*host) || !host->query_interface)
+__attribute__((visibility("default"))) int lyra_plugin_init(const LyraHostV3 *host, LyraPluginV3 *out) {
+    if (!host || host->abi != LYRA_PLUGIN_ABI || host->size != sizeof(*host) || !host->query_interface)
         return -1;
-    playback = host->query_interface(host->user, LYRA_INTERFACE_PLAYBACK, 2, sizeof(*playback));
+    playback = host->query_interface(host->user, LYRA_INTERFACE_PLAYBACK, LYRA_INTERFACE_VERSION, sizeof(*playback));
     if (!playback)
         return -1;
-    *out = (LyraPluginV2){0};
+    *out = (LyraPluginV3){0};
     out->size = sizeof(*out);
-    out->abi = 2;
+    out->abi = 3;
     out->id = "example.style";
     out->kind = "style";
     out->version = "1.0";

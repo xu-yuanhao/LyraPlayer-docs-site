@@ -1,31 +1,31 @@
 #include "plugin/lyra_plugin.h"
 #include <stdlib.h>
 #include <string.h>
-static const LyraPlaybackRulesV2 *builtin;
-static const LyraConfigSchemaV2 *config;
+static const LyraPlaybackRulesV3 *builtin;
+static const LyraConfigSchemaV3 *config;
 static int count(void *user) {
     (void)user;
     return 1;
 }
-static int mode(void *user, int32_t row, LyraModeDescriptionV2 *out) {
+static int mode(void *user, int32_t row, LyraModeDescriptionV3 *out) {
     (void)user;
-    if (row != 0 || !out || out->size < sizeof(*out))
+    if (row != 0 || !out || out->size != sizeof(*out))
         return -1;
-    *out = (LyraModeDescriptionV2){sizeof(*out), 1001, "Reverse sequence"};
+    *out = (LyraModeDescriptionV3){sizeof(*out), 1001, "Reverse sequence"};
     return 0;
 }
-static const LyraModesInterfaceV2 modes = {sizeof(modes), 2, 0, count, mode};
-static int parameter(void *user, int32_t row, LyraParameterV2 *out) {
+static const LyraModesInterfaceV3 modes = {sizeof(modes), LYRA_INTERFACE_VERSION, 0, count, mode};
+static int parameter(void *user, int32_t row, LyraParameterV3 *out) {
     (void)user;
-    if (row != 0 || !out || out->size < sizeof(*out))
+    if (row != 0 || !out || out->size != sizeof(*out))
         return -1;
-    *out = (LyraParameterV2){sizeof(*out), 2, 0, 1,
+    *out = (LyraParameterV3){sizeof(*out), 2, 0, 1,
         "example.remember_history", "Remember history", "Record manual navigation history",
-        "", "Playback example", "true", "example.old_remember_history", 0, 0};
+        "", "Playback example", "true", 0, 0};
     return 0;
 }
-static const LyraConfigSchemaV2 schema = {sizeof(schema), 2, 0, count, parameter, 0};
-static int next(void *user, const LyraPlaybackRuleRequestV2 *request, LyraPlaybackRuleResultV2 *out) {
+static const LyraConfigSchemaV3 schema = {sizeof(schema), LYRA_INTERFACE_VERSION, 0, count, parameter, 0};
+static int next(void *user, const LyraPlaybackRuleRequestV3 *request, LyraPlaybackRuleResultV3 *out) {
     (void)user;
     if (request->mode != 1001)
         return builtin->next(builtin->user, request, out);
@@ -40,10 +40,10 @@ static int next(void *user, const LyraPlaybackRuleRequestV2 *request, LyraPlayba
     int row = (request->current + delta) % request->count;
     if (row < 0)
         row += request->count;
-    *out = (LyraPlaybackRuleResultV2){sizeof(*out), row, remember};
+    *out = (LyraPlaybackRuleResultV3){sizeof(*out), row, remember};
     return 0;
 }
-static int order(void *user, const LyraPlaybackRuleRequestV2 *request, int32_t *rows, int32_t cap, int32_t *current) {
+static int order(void *user, const LyraPlaybackRuleRequestV3 *request, int32_t *rows, int32_t cap, int32_t *current) {
     (void)user;
     if (request->mode != 1001)
         return builtin->order(builtin->user, request, rows, cap, current);
@@ -54,27 +54,27 @@ static int order(void *user, const LyraPlaybackRuleRequestV2 *request, int32_t *
     *current = request->count - request->current - 1;
     return request->count;
 }
-static const LyraPlaybackRulesV2 rules = {sizeof(rules), 2, 0, next, order, &modes};
-static const void *interface(const LyraHostV2 *host, uint32_t id, uint32_t version, uint32_t size) {
+static const LyraPlaybackRulesV3 rules = {sizeof(rules), LYRA_INTERFACE_VERSION, 0, next, order, &modes};
+static const void *interface(const LyraHostV3 *host, uint32_t id, uint32_t version, uint32_t size) {
     (void)host;
-    if (version != 2)
+    if (version != LYRA_INTERFACE_VERSION)
         return 0;
-    if (id == LYRA_INTERFACE_RULES && size <= sizeof(rules))
+    if (id == LYRA_INTERFACE_RULES && size == sizeof(rules))
         return &rules;
-    if (id == LYRA_INTERFACE_CONFIG_SCHEMA && size <= sizeof(schema))
+    if (id == LYRA_INTERFACE_CONFIG_SCHEMA && size == sizeof(schema))
         return &schema;
     return 0;
 }
-__attribute__((visibility("default"))) int lyra_plugin_init(const LyraHostV2 *host, LyraPluginV2 *out) {
-    if (!host || host->abi != 2 || !host->query_interface)
+__attribute__((visibility("default"))) int lyra_plugin_init(const LyraHostV3 *host, LyraPluginV3 *out) {
+    if (!host || host->abi != LYRA_PLUGIN_ABI || !host->query_interface)
         return -1;
-    builtin = host->query_interface(host->user, LYRA_INTERFACE_RULES, 2, sizeof(*builtin));
-    config = host->query_interface(host->user, LYRA_INTERFACE_CONFIG_SCHEMA, 2, sizeof(*config));
+    builtin = host->query_interface(host->user, LYRA_INTERFACE_RULES, LYRA_INTERFACE_VERSION, sizeof(*builtin));
+    config = host->query_interface(host->user, LYRA_INTERFACE_CONFIG_SCHEMA, LYRA_INTERFACE_VERSION, sizeof(*config));
     if (!builtin || !config)
         return -1;
-    *out = (LyraPluginV2){0};
+    *out = (LyraPluginV3){0};
     out->size = sizeof(*out);
-    out->abi = 2;
+    out->abi = 3;
     out->id = "example.rules";
     out->kind = "playback-rules";
     out->version = "1.0";

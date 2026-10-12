@@ -4,7 +4,7 @@
 
 #include "plugin/contracts.h"
 
-#define LYRA_PLUGIN_ABI 2
+#define LYRA_PLUGIN_ABI 3
 
 #define LYRA_PERM_GRANTED 0
 #define LYRA_PERM_DENIED 1
@@ -15,15 +15,6 @@
 #define LYRA_INPUT_UP 1
 #define LYRA_INPUT_MOVE 2
 #define LYRA_INPUT_CANCEL 3
-
-typedef struct LyraRecord {
-    uint32_t size;
-    int64_t id;
-    int64_t album_id;
-    int64_t duration_ms;
-    char title[80];
-    char artist[80];
-} LyraRecord;
 
 typedef struct LyraInput {
     uint32_t size;
@@ -54,12 +45,6 @@ typedef struct LyraVeilCmd {
 typedef struct LyraFlowCmd {
     float x, y, w, h, radius;
 } LyraFlowCmd;
-
-typedef struct LyraGlyphCmd {
-    float x, y, size, r, g, b, a;
-    const char *text;
-    const char *font;
-} LyraGlyphCmd;
 
 typedef struct LyraImageCmd {
     float x, y, w, h;
@@ -105,7 +90,7 @@ typedef struct LyraRippleCmd {
 #define LYRA_LAYER_HALO 2u
 #define LYRA_LAYER_CLIP 4u
 #define LYRA_LAYER_FADE 8u
-typedef struct LyraTextLayerV2 {
+typedef struct LyraTextLayerV3 {
     uint32_t size, flags;
     const char *text, *font;
     float x, y, w, h, text_size, r, g, b, a;
@@ -113,18 +98,18 @@ typedef struct LyraTextLayerV2 {
     float sweep_row, sweep_rows, sweep_cut, sweep_direction;
     float clip_x, clip_y, clip_w, clip_h, clip_radius;
     float fade_left, fade_right, fade_edge;
-} LyraTextLayerV2;
+} LyraTextLayerV3;
 #define LYRA_MATERIAL_FLAT 0u
 #define LYRA_MATERIAL_GRADIENT 1u
 #define LYRA_MATERIAL_RIM 2u
-typedef struct LyraShapeLayerV2 {
+typedef struct LyraShapeLayerV3 {
     uint32_t size, material, flags;
     LyraSolid shape;
     float r2, g2, b2, a2, edge_px;
     float clip_x, clip_y, clip_w, clip_h, clip_radius;
-} LyraShapeLayerV2;
+} LyraShapeLayerV3;
 
-typedef struct LyraSceneV2 {
+typedef struct LyraSceneV3 {
     uint32_t size;
     const LyraSolid *solids;
     int32_t solid_count;
@@ -135,22 +120,20 @@ typedef struct LyraSceneV2 {
     const LyraVeilCmd *veils;
     int32_t veil_count;
     const LyraFlowCmd *flow;
-    const LyraGlyphCmd *glyphs;
-    int32_t glyph_count;
     int32_t spare;
     const LyraImageCmd *images;
     int32_t image_count;
     const LyraRippleCmd *ripple;
-    const LyraTextLayerV2 *text_layers;
+    const LyraTextLayerV3 *text_layers;
     int32_t text_layer_count;
-    const LyraShapeLayerV2 *shape_layers;
+    const LyraShapeLayerV3 *shape_layers;
     int32_t shape_layer_count;
-} LyraSceneV2;
+} LyraSceneV3;
 
-typedef struct LyraHostV2 LyraHostV2;
-typedef struct LyraPluginV2 LyraPluginV2;
+typedef struct LyraHostV3 LyraHostV3;
+typedef struct LyraPluginV3 LyraPluginV3;
 
-struct LyraHostV2 {
+struct LyraHostV3 {
     uint32_t size;
     uint32_t abi;
     void *user;
@@ -158,16 +141,10 @@ struct LyraHostV2 {
     void (*request_frame)(void *user);
     int64_t (*now_ns)(void *user);
     float (*density)(void *user);
-    void (*submit)(void *user, const LyraSceneV2 *scene);
+    void (*submit)(void *user, const LyraSceneV3 *scene);
     void (*layer)(void *user, const char *id, float z, float x, float y, float w, float h);
-    int (*library_query)(void *user, const char *text, LyraRecord *out, int cap);
-    int (*search_query)(void *user, const char *text, LyraRecord *out, int cap);
     int (*config_text)(void *user, const char *table, char *out, int cap);
     int (*request_permission)(void *user, const char *name);
-    // 0 toggle, 1 seek(ms), 2 position(ms), 3 set mode, 4 get mode.
-    // 5 queue count, 6 queue track catalog index(ms=row), 7 play queue row, 8 current queue row.
-    int (*transport)(void *user, int action, int64_t ms, int64_t *position);
-    const LyraPluginV2 *(*find)(void *user, const char *capability);
     void (*set_panes)(void *user, const LyraPanes *panes);
     int (*acquire_surface)(void *user, const char *name, int32_t w, int32_t h);
     int (*section)(void *user, const char *capability, float *x, float *y, float *w, float *h);
@@ -177,23 +154,21 @@ struct LyraHostV2 {
     const void *(*query_interface)(void *, uint32_t, uint32_t, uint32_t);
 };
 
-struct LyraPluginV2 {
+struct LyraPluginV3 {
     uint32_t size;
     uint32_t abi;
     const char *id;
     const char *kind;
     const char *version;
     const char *config_tables;
-    int (*init)(const LyraHostV2 *host);
-    int (*bind)(const LyraHostV2 *host);
-    void (*shutdown)(const LyraHostV2 *host);
-    int (*on_frame)(const LyraHostV2 *host, int64_t time_ns);
-    int (*on_input)(const LyraHostV2 *host, const LyraInput *input);
-    int (*query)(const LyraHostV2 *host, const char *text, LyraRecord *out, int cap);
-    void (*on_permission)(const LyraHostV2 *host, const char *name, int status);
-    int (*open_fd)(const LyraHostV2 *host, int64_t id);
-    int (*supply)(const LyraHostV2 *host, int64_t id, char *buf, int cap);
-    const void *(*query_interface)(const LyraHostV2 *, uint32_t, uint32_t, uint32_t);
+    int (*init)(const LyraHostV3 *host);
+    int (*bind)(const LyraHostV3 *host);
+    void (*shutdown)(const LyraHostV3 *host);
+    int (*on_frame)(const LyraHostV3 *host, int64_t time_ns);
+    int (*on_input)(const LyraHostV3 *host, const LyraInput *input);
+    void (*on_permission)(const LyraHostV3 *host, const char *name, int status);
+    int (*supply)(const LyraHostV3 *host, int64_t id, char *buf, int cap);
+    const void *(*query_interface)(const LyraHostV3 *, uint32_t, uint32_t, uint32_t);
 };
 
-typedef int (*LyraPluginInitFn)(const LyraHostV2 *host, LyraPluginV2 *out);
+typedef int (*LyraPluginInitFn)(const LyraHostV3 *host, LyraPluginV3 *out);
