@@ -183,6 +183,7 @@ control_gap_dp = 28
 lyric_line_gap_dp = 32
 lyric_caption_gap_dp = 8
 lyric_follow_ms = 650
+lyric_relocation_factor = 3
 lyric_chain_stiffness = 100
 lyric_chain_damping = 20
 lyric_chain_coupling = 0.65
@@ -332,6 +333,9 @@ avatar_url = "https://github.com/xu-yuanhao.png"
 avatar_timeout_ms = 6000
 logo_dp = 72
 avatar_dp = 48
+avatar_sample_factor = 2
+avatar_min_px = 64
+avatar_max_px = 256
 hero_gap_dp = 18
 section_gap_dp = 30
 block_gap_dp = 12
@@ -362,6 +366,8 @@ sidecars = true
 pause_with_music = true
 directories = "covers,cover,videos,video,视频"
 max_embedded_mib = 32
+video_hide_lyrics_t = 0.85
+video_min_cover_px = 8
 
 [plugin_install]
 max_bytes = 33554432

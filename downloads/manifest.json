@@ -4,19 +4,21 @@
     "interface_version": 2,
     "documentation_version": "0.1.0",
     "status": "preview",
-    "host_version": "76a84c4",
+    "host_version": "574b04b",
     "note": "公开插件契约预览；配置和接口以所安装宿主能力查询为准。"
   },
   "files": {
     "reference-data/publication.json": "82a2e3bdf82ec5d78715fbceac4e020192aa0003021ee195b60d8d3562972131",
-    "reference-data/release.json": "544664c1031e7bc7a33d251ff94b11c29dff88d407dbadd055dd67841a4f6722",
+    "reference-data/release.json": "4ea374e0f5811491076401234b090bad5afcc5a47aa7431d2598c3af692ba69a",
     "reference-data/services.json": "f49cf372594b65cece901130a88073659e57f18d57c18a312e90a5e7a084a633",
-    "reference-data/ui.toml": "2023799e6c51def5a36588aa759dbefe789493d79595d18dd3f21ae215047ec8",
+    "reference-data/ui.toml": "8ed3e3d72e705a864572456b4d93349fa57021cbab49d4e7304b8a3a16fd388f",
     "reference-data/zh-Hans.toml": "5c86eb7e1c2cf593a519bd72ff5a1bf704ea27ac840e408f52929441b0e5cbd0",
-    "sdk/include/plugin/contracts.h": "96c9cc3fd0114c29f1d70fbf03eeb89d1e47acf803ee2673ff6d1f59301c4975",
+    "sdk/include/plugin/contracts.h": "bcaa254a4beaf73682ac300a883c72c64ac881c177776502ded5918977492d3b",
     "sdk/include/plugin/event_contracts.h": "4a34f4374fcbff34aefeb079873e4371a833575efb85d6f2846fcd2a1db4078a",
     "sdk/include/plugin/lyra_plugin.h": "7ddb617a414a459ac8ba1f9f3a29a965da2d697752e721ed6227f01b8951bcf0",
     "sdk/include/plugin/media_contracts.h": "275467a96ec7448bb418d82418ddf89b210073f369cda429a8dd8f0cc2f10e07",
+    "sdk/include/plugin/presentation_contracts.h": "0a987774c35e0b1f6acbb000af4bd0ef50984e682ba98718f00088a13fdf5c6e",
+    "sdk/include/plugin/service_contracts.h": "bf04a18770b566b9a1f83220d2cb90094767cbcecd4cd4de1d829de4e2afe516",
     "examples/root.c": "825f1a13d7cd021dbdef01b96bd54ac2665b7e06895f59073f56e1ed68f2500a",
     "examples/rules.c": "fa3aa127d45e07dcb189f2efbc80268270717111effe0790f86130348b11f971",
     "examples/style.c": "1a4a07b01e284ffe633885df858d228fa8f9505dae005e48de467bdf9cf420c8"
@@ -203,6 +205,7 @@
         "lyric_line_gap_dp",
         "lyric_caption_gap_dp",
         "lyric_follow_ms",
+        "lyric_relocation_factor",
         "lyric_chain_stiffness",
         "lyric_chain_damping",
         "lyric_chain_coupling",
@@ -348,6 +351,9 @@
         "avatar_timeout_ms",
         "logo_dp",
         "avatar_dp",
+        "avatar_sample_factor",
+        "avatar_min_px",
+        "avatar_max_px",
         "hero_gap_dp",
         "section_gap_dp",
         "block_gap_dp",
@@ -376,7 +382,9 @@
         "sidecars",
         "pause_with_music",
         "directories",
-        "max_embedded_mib"
+        "max_embedded_mib",
+        "video_hide_lyrics_t",
+        "video_min_cover_px"
       ],
       "plugin_install": [
         "max_bytes",
@@ -682,6 +690,14 @@
     [
       "LYRA_INTERFACE_PLAYBACK_OBSERVER",
       "15"
+    ],
+    [
+      "LYRA_INTERFACE_SERVICE_CONTEXT",
+      "16"
+    ],
+    [
+      "LYRA_INTERFACE_PRESENTATION_CONTEXT",
+      "17"
     ]
   ],
   "services": {
