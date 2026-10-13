@@ -2,16 +2,16 @@
   "release": {
     "sdk_abi": 3,
     "interface_version": 3,
-    "documentation_version": "0.3.1",
+    "documentation_version": "0.3.2",
     "status": "preview",
-    "host_version": "d57f108",
+    "host_version": "4b6ace8",
     "note": "当前内测仅支持 ABI 3；不提供旧 ABI、旧命令或旧键迁移。"
   },
   "files": {
     "reference-data/publication.json": "82a2e3bdf82ec5d78715fbceac4e020192aa0003021ee195b60d8d3562972131",
-    "reference-data/release.json": "f7f26403493c7ed7ce8023819cca865e5dc136c30c66a3771e8f905527644dc9",
-    "reference-data/services.json": "f49cf372594b65cece901130a88073659e57f18d57c18a312e90a5e7a084a633",
-    "reference-data/ui.toml": "1142a9b44c73506c63a8b4758096e3fecbbf83af81fc471ce65bea4cf33011e9",
+    "reference-data/release.json": "df307b6f84d7c85a673307a080c59311f4386892c6b2f5ac9067cb1df9b0f23c",
+    "reference-data/services.json": "05f286ccd7a2933fe08ac9a9fecb3e94f4142e9289abfcece82669b3af2826b1",
+    "reference-data/ui.toml": "954bca020c82a637470d113bf8d01396115f9d81a9b85431b9e25ed77aefaacb",
     "reference-data/zh-Hans.toml": "5c86eb7e1c2cf593a519bd72ff5a1bf704ea27ac840e408f52929441b0e5cbd0",
     "sdk/include/plugin/contracts.h": "44bf5ce34fa7bc16d9e0fd086c7d8af6b80107cb0adbf3a236d74ac120b89d86",
     "sdk/include/plugin/event_contracts.h": "12b0c92646c1b9d50245fadc24304a5dede624528029034965f4f41e4c6f7d7d",
@@ -476,6 +476,10 @@
         "resource_timeout_ms",
         "resource_workers",
         "resource_chunk_bytes"
+      ],
+      "geometry": [
+        "chevron_span_dp",
+        "chevron_stroke_dp"
       ]
     },
     "zh-Hans": {
@@ -798,11 +802,14 @@
         "shell",
         "system",
         "artwork",
-        "player"
+        "player",
+        "geometry"
       ]
     },
     "sheet": {
-      "config_tables": []
+      "config_tables": [
+        "geometry"
+      ]
     },
     "sheet.bottom-reveal": {
       "config_tables": []

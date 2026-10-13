@@ -457,3 +457,7 @@ resource_bytes = 134217728
 resource_timeout_ms = 30000
 resource_workers = 3
 resource_chunk_bytes = 16384
+
+[geometry]
+chevron_span_dp = 12
+chevron_stroke_dp = 2

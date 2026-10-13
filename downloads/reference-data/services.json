@@ -87,11 +87,14 @@
       "shell",
       "system",
       "artwork",
-      "player"
+      "player",
+      "geometry"
     ]
   },
   "sheet": {
-    "config_tables": []
+    "config_tables": [
+      "geometry"
+    ]
   },
   "sheet.bottom-reveal": {
     "config_tables": []
