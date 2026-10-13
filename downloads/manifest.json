@@ -2,14 +2,14 @@
   "release": {
     "sdk_abi": 3,
     "interface_version": 3,
-    "documentation_version": "0.2.0",
+    "documentation_version": "0.3.0",
     "status": "preview",
-    "host_version": "6e83cf8",
+    "host_version": "54ad602",
     "note": "当前内测仅支持 ABI 3；不提供旧 ABI、旧命令或旧键迁移。"
   },
   "files": {
     "reference-data/publication.json": "82a2e3bdf82ec5d78715fbceac4e020192aa0003021ee195b60d8d3562972131",
-    "reference-data/release.json": "29bb5a01b15965ec0076984b14e310b6c483f4cdf09049daabe8bc49d878dcf3",
+    "reference-data/release.json": "eed0ca1502af3ffe6467de335112cf442fa298e4afb53cac83c7c374625d3991",
     "reference-data/services.json": "f49cf372594b65cece901130a88073659e57f18d57c18a312e90a5e7a084a633",
     "reference-data/ui.toml": "8ed3e3d72e705a864572456b4d93349fa57021cbab49d4e7304b8a3a16fd388f",
     "reference-data/zh-Hans.toml": "5c86eb7e1c2cf593a519bd72ff5a1bf704ea27ac840e408f52929441b0e5cbd0",
@@ -17,8 +17,10 @@
     "sdk/include/plugin/event_contracts.h": "12b0c92646c1b9d50245fadc24304a5dede624528029034965f4f41e4c6f7d7d",
     "sdk/include/plugin/lyra_plugin.h": "d822f431fa38785ea08171efdbcab7f8674d1e684ce045dc844d77c6f33ba024",
     "sdk/include/plugin/media_contracts.h": "9f38945126ded5e72de550712633113cb83513c09f06edca508a7cfe2f56cce7",
+    "sdk/include/plugin/message_contracts.h": "b7700a7b0c9738ac8cbeb5635bcb503ac4e67b714e540998ac536888e7b8afaf",
     "sdk/include/plugin/presentation_contracts.h": "10908c0d2a7851a1695ee922c919f054280b5ecf0555bccbd2586cfb6fab7ed2",
-    "sdk/include/plugin/service_contracts.h": "218eefe248921bf2178ad4876694040031424af084ca7588eee5cf8a799a4769",
+    "sdk/include/plugin/service_contracts.h": "a7980ebbe906969fedc213395e2b7dd9ebc83fc448b1419859be8bfc6f282c5b",
+    "examples/capability.c": "e55f4475953535ce56ca03294b2fd5bff64e6dd2022fb1f8068faa31a9ad4daf",
     "examples/root.c": "dab39f1718efca09ed14fb4b1874872c321a717292441b27018eae820527f26f",
     "examples/rules.c": "530d94a976846d1266df3db0d5671dc9539509eed23b8c59f86501f193480018",
     "examples/style.c": "8804403a4c15a9c5bfec666ec2be53104a86b8158a9fcc1d22935814fe92701c"
