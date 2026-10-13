@@ -1,8 +1,8 @@
 {
   "sdk_abi": 3,
   "interface_version": 3,
-  "documentation_version": "0.3.4",
+  "documentation_version": "0.3.5",
   "status": "preview",
-  "host_version": "a278b9d",
+  "host_version": "3cd35fa",
   "note": "当前内测仅支持 ABI 3；不提供旧 ABI、旧命令或旧键迁移。"
 }

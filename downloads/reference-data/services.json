@@ -156,5 +156,10 @@
     "config_tables": [
       "plugin_settings"
     ]
+  },
+  "system.links": {
+    "config_tables": [
+      "plugin_settings"
+    ]
   }
 }
