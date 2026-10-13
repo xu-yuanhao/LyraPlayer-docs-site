@@ -653,6 +653,10 @@
   },
   "interfaces": [
     [
+      "LYRA_INTERFACE_CLIPBOARD",
+      "19"
+    ],
+    [
       "LYRA_INTERFACE_PLAYBACK",
       "1"
     ],
@@ -705,6 +709,10 @@
       "18"
     ],
     [
+      "LYRA_INTERFACE_PLAYBACK_OBSERVER",
+      "15"
+    ],
+    [
       "LYRA_INTERFACE_MEDIA_CONTEXT",
       "13"
     ],
@@ -713,16 +721,12 @@
       "14"
     ],
     [
-      "LYRA_INTERFACE_PLAYBACK_OBSERVER",
-      "15"
+      "LYRA_INTERFACE_PRESENTATION_CONTEXT",
+      "17"
     ],
     [
       "LYRA_INTERFACE_SERVICE_CONTEXT",
       "16"
-    ],
-    [
-      "LYRA_INTERFACE_PRESENTATION_CONTEXT",
-      "17"
     ]
   ],
   "services": {
