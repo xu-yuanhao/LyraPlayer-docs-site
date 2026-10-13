@@ -373,6 +373,11 @@ video_min_cover_px = 8
 max_bytes = 33554432
 max_files = 128
 
+[scan_strategy]
+mode = "default"
+exclude_no_cover = false
+folders = ""
+
 [support]
 # CNY minor units; up to four distinct positive amounts. Default screenshot flow: ¥15.
 amounts_fen = "1500"
@@ -443,6 +448,7 @@ script_fraction = 0.6
 kana_priority = 1
 
 [media]
+library_collection = "library"
 item_limit = 512
 text_bytes = 4194304
 request_limit = 32
