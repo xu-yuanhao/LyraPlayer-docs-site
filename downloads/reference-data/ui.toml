@@ -113,7 +113,6 @@ fling_dp_per_s = 220
 spring_damping = 1
 spring_stiffness = 900
 surface = "#FFFFFF"
-frost_to_surface = true
 row_height_dp = 52
 title_sp = 16
 row_sp = 16

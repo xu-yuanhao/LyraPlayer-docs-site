@@ -151,5 +151,10 @@
     "config_tables": [
       "profile"
     ]
+  },
+  "system.clipboard": {
+    "config_tables": [
+      "plugin_settings"
+    ]
   }
 }
