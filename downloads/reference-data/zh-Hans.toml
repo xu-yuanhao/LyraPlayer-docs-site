@@ -58,6 +58,8 @@ write_error = "无法保存设置"
 back = "‹"
 forward = "›"
 about = "关于"
+docs = "开发者文档"
+docs_url = "https://xu-yuanhao.github.io/LyraPlayer-docs-site/"
 
 [about]
 app_name = "Lyra Player"
@@ -71,8 +73,6 @@ thanks_p1 = "在这里感谢以下最早的测试员！感谢你们的付出和�
 thanks_p2 = "你们的名字会一直被记录在软件里。"
 licenses_section = "开源声明"
 license_note = "感谢这些开源项目。完整协议随应用提供。"
-ffmpeg = "FFmpeg 7.1.1（可选播放插件）"
-ffmpeg_license = "LGPL-2.1-or-later"
 pugixml = "pugixml 1.16"
 pugixml_license = "MIT"
 cjson = "cJSON 1.7.19"
@@ -146,6 +146,18 @@ installing = "正在安装插件"
 busy = "安装任务繁忙，请稍后重试"
 fallback = "正在尝试备用地址"
 failed = "插件下载或校验失败，请重试"
+
+[scan_strategy_copy]
+title = "扫描策略"
+mode = "扫描模式"
+mode_default = "默认"
+mode_whitelist = "白名单"
+mode_blacklist = "黑名单"
+add_whitelist = "选择白名单"
+add_blacklist = "选择黑名单"
+exclude_no_cover = "无封面不显示"
+remove = "移除"
+empty_folders = "尚未选择目录"
 
 [profile_copy]
 genre = "流派"

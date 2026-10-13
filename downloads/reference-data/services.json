@@ -25,7 +25,9 @@
     "config_tables": []
   },
   "library": {
-    "config_tables": []
+    "config_tables": [
+      "geometry"
+    ]
   },
   "library.mediastore": {
     "config_tables": []
