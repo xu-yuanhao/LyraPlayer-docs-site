@@ -1,7 +1,6 @@
 import { defineConfig } from "vitepress"
 export default defineConfig({
   srcExclude: ["public/**"],
-  publicDir: process.env.LYRA_DOCS_PUBLIC_DIR || "public",
   ignoreDeadLinks: [/^\/downloads\//, /^\/licenses\//, /^\/thanks\//],
   "lang": "zh-CN",
   "title": "Lyra Player 开发者文档",
