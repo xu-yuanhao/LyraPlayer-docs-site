@@ -19,9 +19,18 @@ static int parameter(void *user, int32_t row, LyraParameterV3 *out) {
     (void)user;
     if (row != 0 || !out || out->size != sizeof(*out))
         return -1;
-    *out = (LyraParameterV3){sizeof(*out), 2, 0, 1,
-        "example.remember_history", "Remember history", "Record manual navigation history",
-        "", "Playback example", "true", 0, 0};
+    *out = (LyraParameterV3){sizeof(*out),
+                             1,
+                             LYRA_CONFIG_MINIMUM | LYRA_CONFIG_MAXIMUM | LYRA_CONFIG_INTEGER,
+                             1,
+                             "example.reverse_step",
+                             "Reverse step",
+                             "Tracks to move backwards",
+                             "tracks",
+                             "Playback example",
+                             "1",
+                             1,
+                             16};
     return 0;
 }
 static const LyraConfigSchemaV3 schema = {sizeof(schema), LYRA_INTERFACE_VERSION, 0, count, parameter, 0};
@@ -32,15 +41,17 @@ static int next(void *user, const LyraPlaybackRuleRequestV3 *request, LyraPlayba
     if (request->count <= 0 || request->current < 0)
         return -1;
     char scalar[32] = {0};
-    int remember = 1;
-    int required = config->text(config->user, "example.remember_history", 0, scalar, sizeof(scalar));
-    if (required > 0 && required <= (int)sizeof(scalar))
-        remember = strcmp(scalar, "true") == 0;
-    int delta = request->delta < 0 ? 1 : -1;
+    int step = 1;
+    if (config->text(config->user, "example.reverse_step", 0, scalar, sizeof(scalar)) > 0) {
+        long value = strtol(scalar, 0, 10);
+        if (value >= 1 && value <= 16)
+            step = (int)value;
+    }
+    int delta = request->delta < 0 ? step : -step;
     int row = (request->current + delta) % request->count;
     if (row < 0)
         row += request->count;
-    *out = (LyraPlaybackRuleResultV3){sizeof(*out), row, remember};
+    *out = (LyraPlaybackRuleResultV3){sizeof(*out), row, 1};
     return 0;
 }
 static int order(void *user, const LyraPlaybackRuleRequestV3 *request, int32_t *rows, int32_t cap, int32_t *current) {

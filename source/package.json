@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "bash build.sh"
+  },
+  "dependencies": {
+    "vitepress": "1.6.4"
+  }
+}

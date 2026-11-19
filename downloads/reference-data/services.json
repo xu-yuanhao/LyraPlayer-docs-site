@@ -46,11 +46,22 @@
   "payment-provider": {
     "config_tables": []
   },
+  "personal-library": {
+    "config_tables": [
+      "personal",
+      "personal_copy"
+    ]
+  },
   "playback": {
-    "config_tables": []
+    "config_tables": [
+      "audio_transition"
+    ]
   },
   "playback-memory": {
-    "config_tables": []
+    "config_tables": [
+      "listening",
+      "listening_copy"
+    ]
   },
   "playback-rules": {
     "config_tables": []
@@ -74,6 +85,25 @@
   "plugin-search": {
     "config_tables": [
       "plugin_repository"
+    ]
+  },
+  "profile": {
+    "config_tables": [
+      "profile",
+      "profile_copy",
+      "listening",
+      "listening_copy"
+    ]
+  },
+  "profile-classification": {
+    "config_tables": [
+      "profile"
+    ]
+  },
+  "scan-strategy": {
+    "config_tables": [
+      "scan_strategy",
+      "scan_strategy_copy"
     ]
   },
   "search": {
@@ -123,6 +153,11 @@
   "style.ember": {
     "config_tables": []
   },
+  "style.immersive": {
+    "config_tables": [
+      "immersive"
+    ]
+  },
   "support-page": {
     "config_tables": [
       "support"
@@ -131,25 +166,6 @@
   "system-bars": {
     "config_tables": [
       "system"
-    ]
-  },
-  "theme": {
-    "config_tables": [
-      "theme"
-    ]
-  },
-  "title": {
-    "config_tables": []
-  },
-  "profile": {
-    "config_tables": [
-      "profile",
-      "profile_copy"
-    ]
-  },
-  "profile-classification": {
-    "config_tables": [
-      "profile"
     ]
   },
   "system.clipboard": {
@@ -161,5 +177,13 @@
     "config_tables": [
       "plugin_settings"
     ]
+  },
+  "theme": {
+    "config_tables": [
+      "theme"
+    ]
+  },
+  "title": {
+    "config_tables": []
   }
 }
