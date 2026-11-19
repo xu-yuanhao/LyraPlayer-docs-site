@@ -12,7 +12,7 @@ static const LyraStylesInterfaceV3 styles = {
 
 ## 默认背景或整卡片绘制
 
-`background_variant` 选择已有背景变体。非 NULL paint 回调替换整张播放卡片呈现，收到样式选择器计算的 x/y/w/h；通过 submit 画在同一坐标。它不是自动在默认歌词上加一个效果。需要歌词、控件、播放信息时自己查询公开接口并绘制。
+`background_variant` 选择已有背景变体。非 NULL paint 回调替换整张播放卡片呈现，收到样式选择器计算的 x/y/w/h；通过 submit 画在同一坐标。需要显示歌词、控件或播放信息时，从 SDK 读取数据并绘制。
 
 input 处理该样式的输入；返回 0 让未消费事件继续进入默认导航。选择器打开期间输入由选择器处理，不自行绕过选择器命中。
 
@@ -33,5 +33,3 @@ glyph/text layer 接受 UTF-8 text 和 font。当前 Android 后端支持系统�
 ## 生命周期验收
 
 验证选择、缩放、切歌、暂停、横竖窗口变化、输入消费、卸载与缺失接口回退。不要在每个稳定帧分配新大数组；声明被宿主复制不意味着 paint 持有图像可以立即释放。
-
-下一步：[可配置插件](/plugins/config-schema)。

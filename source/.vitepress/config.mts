@@ -122,7 +122,7 @@ export default defineConfig({
             "link": "/plugins/android"
           },
           {
-            "text": "Android IDL 1",
+            "text": "Android IDL 9",
             "link": "/reference/android-platform"
           },
           {
@@ -208,7 +208,7 @@ export default defineConfig({
             "link": "/reference/playback"
           },
           {
-            "text": "维护文档站点",
+            "text": "文档与 SDK 版本",
             "link": "/developers/docs"
           }
         ]
@@ -222,7 +222,19 @@ export default defineConfig({
       "label": "本页目录"
     },
     "search": {
-      "provider": "local"
+      "provider": "local",
+      "options": {
+        "translations": {
+          "button": { "buttonText": "搜索文档", "buttonAriaLabel": "搜索文档" },
+          "modal": {
+            "displayDetails": "显示详情",
+            "resetButtonTitle": "清空搜索",
+            "backButtonTitle": "返回",
+            "noResultsText": "没有匹配结果",
+            "footer": { "selectText": "打开", "navigateText": "切换", "closeText": "关闭" }
+          }
+        }
+      }
     },
     "darkModeSwitchLabel": "主题",
     "sidebarMenuLabel": "目录",
@@ -230,10 +242,6 @@ export default defineConfig({
     "docFooter": {
       "prev": "上一篇",
       "next": "下一篇"
-    },
-    "footer": {
-      "message": "公开 SDK 与插件文档 · 不提供播放器实现源码",
-      "copyright": "Lyra Player · Let It Flow."
     }
   },
   "head": [

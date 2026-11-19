@@ -7,7 +7,7 @@ const LyraPlaybackInterfaceV3 *playback = host->query_interface(
 if (!playback) return -1;
 ```
 
-请求不支持的 ID、版本或结构大小会返回 NULL。每个输出 POD 先设置 size；不要把 NULL 当作空白有效接口。可选回调先检查函数指针。
+接口查询返回 NULL 时，该能力不可用。填写输出结构的 `size`，调用可选回调前检查函数指针。
 
 接口的发现方式和完整头文件见[公共 C SDK](/reference/abi)。
 
@@ -23,7 +23,6 @@ command 返回 0 表示执行、1 表示帧内接受后延迟、负数拒绝。�
 
 队列给出的是目录索引和当前队列行，二者不是曲目 ID；索引只在当前目录版本有效。选择队列行使用 QUEUE\_SELECT，SELECT 使用目录索引。
 
-下一步：[样式](/plugins/styles)、[规则](/plugins/rules)、[提供者](/plugins/playback)。
 
 ## 媒体数据与资源
 

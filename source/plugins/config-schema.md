@@ -28,7 +28,7 @@
 
 写入通过 `LyraConfigInterfaceV3.write(user,key,scalar)`，例如布尔用 `"true"`，字符串值需要包含 TOML 双引号。类型、声明范围与内置校验通过后持久化，在帧边界激活；随后 request\_frame。
 
-不要一帧一帧重复声明不同 schema、无条件写回默认值或自行修改用户其他表。默认值不是重置用户设置的命令。
+在配置 schema 中声明默认值。仅在用户提交修改时写入该插件拥有的键。
 
 ## 验证
 

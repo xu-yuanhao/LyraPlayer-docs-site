@@ -46,5 +46,3 @@ python3 scripts/catalog.py
 不要先发布指向不存在文件的新索引。GitLab Generic Package 和 GitHub Release 应是字节一致的镜像；版本比较支持数值段和 SemVer prerelease，不猜未知格式，不降级。
 
 第三方源可按同一协议提供索引与包，但默认源信任官方公钥。向官方目录贡献插件不代表自动获取官方私钥，需维护者审查并发布。
-
-下一步：[签名与信任](/plugins/security)、[源配置](/config/repositories)。

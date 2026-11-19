@@ -57,7 +57,7 @@ int accepted = playback->command(playback->user, &command);
 if (accepted >= 0) host->request_frame(host->user);
 ```
 
-这是已有接口变量的函数内片段，不是完整插件入口。desired\_queue\_row 应来自同一目录/队列版本中的有效行。
+`desired_queue_row` 须是当前目录及队列版本中的有效行。
 
 ## 队列
 

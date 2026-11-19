@@ -1,23 +1,30 @@
 ---
-layout: home
-hero:
-  name: Lyra Player
-  text: 插件开发文档
-  actions:
-    - theme: brand
-      text: 下载 SDK
-      link: /downloads/lyra-plugin-sdk.zip
-    - theme: alt
-      text: 编译第一个插件
-      link: /plugins/first-plugin
-features:
-  - title: 接口参考
-    details: 查看接口 ID、调用位置、参数及线程约定。
-    link: /reference/abi
-  - title: 扩展与替换
-    details: 接入媒体来源、搜索、歌词格式、设置页和播放后端。
-    link: /plugins/extensions
-  - title: 打包与发布
-    details: 编写清单、安装 ZIP 和发布插件目录。
-    link: /plugins/publishing
+sidebar: false
+aside: false
+outline: false
+prev: false
+next: false
+pageClass: docs-home
 ---
+
+# Lyra Player 插件开发
+
+<p class="sdk-line"><a href="./downloads/lyra-plugin-sdk.zip">下载 SDK</a> ABI 3 · Android IDL 9 · arm64-v8a</p>
+
+## 开发
+
+<ul class="doc-index">
+  <li><a href="./plugins/first-plugin.html">编译和安装</a><span>用 NDK 编译示例，在播放器内安装 ZIP。</span></li>
+  <li><a href="./plugins/extensions.html">选择扩展入口</a><span>界面、播放后端、媒体来源、搜索和歌词。</span></li>
+  <li><a href="./plugins/publishing.html">打包与发布</a><span>清单、插件目录、校验和签名。</span></li>
+</ul>
+
+## 参考
+
+<ul class="doc-index">
+  <li><a href="./reference/abi.html">C 接口</a><span>接口 ID、头文件与调用入口。</span></li>
+  <li><a href="./reference/android-platform.html">Android 方法表</a><span>JNI 声明、版本及常量。</span></li>
+  <li><a href="./config/reference/">配置表</a><span>配置键和宿主默认值。</span></li>
+</ul>
+
+<p class="site-links"><a href="./licenses/">第三方许可</a> · <a href="./thanks/">致谢</a></p>

@@ -4,7 +4,7 @@
 
 ## 版本与声明
 
-当前公开平台契约为 **IDL 9**，与插件 ABI 3 分开版本化。[完整方法、操作 ID 与 JNI descriptor](/reference/android-platform)由发布的 IDL 生成，[SDK ZIP](/downloads/lyra-plugin-sdk.zip)也包含原始 JSON。操作 ID 标识声明；JNI 仍按 IDL 的方法名和 descriptor 查找，不是把 ID 传给任意 Java 方法。
+当前公开平台契约为 **IDL 9**，与插件 ABI 3 分开版本化。[完整方法、操作 ID 与 JNI descriptor](/reference/android-platform)由发布的 IDL 生成，[SDK ZIP](/downloads/lyra-plugin-sdk.zip)也包含原始 JSON。JNI 按 IDL 中的方法名与 descriptor 查找方法。
 
 先取得 `lyraPlatformVersion()I` 并检查返回 9，再查找所需声明方法。版本不符、方法不存在或出现 JNI exception 时停止调用、报告能力不可用；没有旧版本回退，也不猜其他重载。宿主自身使用同一 IDL 生成 Java 接口、JNI 方法表和 R8 保留规则，并在绑定时验证完整声明。
 

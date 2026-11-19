@@ -4,7 +4,7 @@
 
 ## 能力查询与注册
 
-插件的 `query_interface` 对 ID 14、version 2 和支持的 size 返回 `LyraMediaProviderV3`。数据插件可声明自己独有的 capability（例如 `example-online`），宿主会发现它的媒体接口；不要让多个数据插件声明同一个 capability，同名服务代表替换。提供者 `id` 也须唯一且非空，不含换行。
+插件通过 `query_interface` 提供 `LyraMediaProviderV3`（ID 14，版本 3，完整结构大小）。独立来源使用唯一的 capability，例如 `example-online`。同名 capability 竞争同一个服务槽。提供者 `id` 须唯一、非空且不含换行。
 
 数据插件无需 `on_frame`。若声明 `search` 并提供 `on_frame`，这是替换搜索呈现，宿主不会再画默认搜索列表。只提供数据时保留默认行布局、封面、点击、输入与滚动。
 
