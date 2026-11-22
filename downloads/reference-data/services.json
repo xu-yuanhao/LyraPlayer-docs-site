@@ -21,7 +21,10 @@
     "config_tables": []
   },
   "font": {
-    "config_tables": []
+    "config_tables": [
+      "typography",
+      "font_fit"
+    ]
   },
   "frame": {
     "config_tables": []
@@ -38,7 +41,10 @@
     "config_tables": []
   },
   "lyrics": {
-    "config_tables": []
+    "config_tables": [
+      "player",
+      "typography"
+    ]
   },
   "payment-confirm-page": {
     "config_tables": [
@@ -103,7 +109,9 @@
     ]
   },
   "search": {
-    "config_tables": []
+    "config_tables": [
+      "search"
+    ]
   },
   "search.vertical-reveal": {
     "config_tables": []
@@ -128,7 +136,11 @@
     "config_tables": []
   },
   "shell": {
-    "config_tables": []
+    "config_tables": [
+      "shell",
+      "geometry",
+      "system"
+    ]
   },
   "shell.attached-reveal": {
     "config_tables": []

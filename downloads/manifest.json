@@ -10,7 +10,7 @@
   "files": {
     "reference-data/publication.json": "82a2e3bdf82ec5d78715fbceac4e020192aa0003021ee195b60d8d3562972131",
     "reference-data/release.json": "a0d6d0d630ccc674d76d5e3da9aa3062db5e0289e3cb235842edcf71c8d078b0",
-    "reference-data/services.json": "362f80c554ae6cd33faf21e8aba5428aeb487def5951ff7d9e743fe51c81b70f",
+    "reference-data/services.json": "19bf866abefc33870e06d71b6145d2d39da1cae74ff464c8173f495e8e2f4a2e",
     "reference-data/ui.toml": "18cf8d7ab11464e97c72039a5bb2f8e22e78eb0bf80d37ad20ad819d13eb193e",
     "reference-data/zh-Hans.toml": "892d796e9b7e66ee130da2d2190c62a94dd2d0009e548716505f9a63d1f96c4b",
     "sdk/include/plugin/clipboard_contracts.h": "3c34c96a32fba871493d1a2b9f39bc29acb6e68c0a8b817d837ca2a33584dbba",
@@ -1126,7 +1126,10 @@
       "config_tables": []
     },
     "font": {
-      "config_tables": []
+      "config_tables": [
+        "typography",
+        "font_fit"
+      ]
     },
     "frame": {
       "config_tables": []
@@ -1143,7 +1146,10 @@
       "config_tables": []
     },
     "lyrics": {
-      "config_tables": []
+      "config_tables": [
+        "player",
+        "typography"
+      ]
     },
     "payment-confirm-page": {
       "config_tables": [
@@ -1208,7 +1214,9 @@
       ]
     },
     "search": {
-      "config_tables": []
+      "config_tables": [
+        "search"
+      ]
     },
     "search.vertical-reveal": {
       "config_tables": []
@@ -1233,7 +1241,11 @@
       "config_tables": []
     },
     "shell": {
-      "config_tables": []
+      "config_tables": [
+        "shell",
+        "geometry",
+        "system"
+      ]
     },
     "shell.attached-reveal": {
       "config_tables": []
