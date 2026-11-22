@@ -180,6 +180,7 @@ progress_glow_alpha = 0.55
 progress_glow_birth_ms = 700
 progress_active_alpha = 0.5
 progress_idle_alpha = 0.2
+progress_style = 0
 empty_cover_alpha = 0.1
 control_touch_dp = 56
 control_icon_dp = 48
