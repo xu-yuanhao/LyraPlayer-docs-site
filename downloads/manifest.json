@@ -10,9 +10,9 @@
   "files": {
     "reference-data/publication.json": "82a2e3bdf82ec5d78715fbceac4e020192aa0003021ee195b60d8d3562972131",
     "reference-data/release.json": "a0d6d0d630ccc674d76d5e3da9aa3062db5e0289e3cb235842edcf71c8d078b0",
-    "reference-data/services.json": "4c4546eb414c0b661b1dd610812af72176d61b1cf8c609cc484d9d689dcb5371",
-    "reference-data/ui.toml": "b68ac475f9353e4bce90dfc945b64ec7c02118ac24052491716565dc49d37178",
-    "reference-data/zh-Hans.toml": "f49f96d5d1be50cded56a8c8e6d5262df0e1fbf2ccef30fd4e428e552be2741f",
+    "reference-data/services.json": "bcf606d21aa192cc60229116ed6a7f70b3038ff8ef0e8924cd6b3108d40931fd",
+    "reference-data/ui.toml": "18cf8d7ab11464e97c72039a5bb2f8e22e78eb0bf80d37ad20ad819d13eb193e",
+    "reference-data/zh-Hans.toml": "892d796e9b7e66ee130da2d2190c62a94dd2d0009e548716505f9a63d1f96c4b",
     "sdk/include/plugin/clipboard_contracts.h": "3c34c96a32fba871493d1a2b9f39bc29acb6e68c0a8b817d837ca2a33584dbba",
     "sdk/include/plugin/collection_directory_contracts.h": "5cd2dbbedd4b7d880b1a88fc19d7f74ac89248603fb013ae808e20fe9eb4cf7f",
     "sdk/include/plugin/contracts.h": "79a2052e8b77a3e8a4d6df920bdeda362a2f0f9fdcca14dd032d1eab07b0d47e",
@@ -40,7 +40,7 @@
     "examples/root.c": "dab39f1718efca09ed14fb4b1874872c321a717292441b27018eae820527f26f",
     "examples/rules.c": "530d94a976846d1266df3db0d5671dc9539509eed23b8c59f86501f193480018",
     "examples/style.c": "8804403a4c15a9c5bfec666ec2be53104a86b8158a9fcc1d22935814fe92701c",
-    "sdk/android-platform-v1.json": "ff47350006743e807379ed6f3e9ae622a909d14c284473a32149a1b7be78ce34"
+    "sdk/android-platform-v10.json": "182d7dfe97909d12afbc075dac5c16f493df962251ee25105d5b5d6bc6f45909"
   },
   "config": {
     "ui": {
@@ -54,7 +54,6 @@
       "style": [
         "active",
         "count",
-        "long_press_ms",
         "picker_scale",
         "picker_side_scale",
         "picker_gap_dp",
@@ -65,11 +64,9 @@
         "picker_scrim",
         "picker_fling_dp",
         "picker_stiffness",
-        "picker_damping",
         "picker_drag_fraction",
         "picker_drag_gain",
-        "picker_fling_step",
-        "picker_overscroll"
+        "picker_fling_step"
       ],
       "logo": [
         "duration_ms",
@@ -95,6 +92,7 @@
         "yellow1"
       ],
       "shell": [
+        "system_edge_dp",
         "drawer_width_fraction",
         "drawer_max_width_dp",
         "foreground_open_scale",
@@ -114,9 +112,8 @@
         "frost_wash"
       ],
       "dock": [
+        "max_icon_distance_dp",
         "height_dp",
-        "inset_x_dp",
-        "inset_b_dp",
         "icon_dp",
         "min_corner_dp",
         "blur_dp",
@@ -131,7 +128,6 @@
         "foreground_open_scale",
         "positional_threshold",
         "fling_dp_per_s",
-        "spring_damping",
         "spring_stiffness",
         "surface",
         "field_height_dp",
@@ -142,6 +138,7 @@
         "top_gesture_dp",
         "gesture_cover_fraction",
         "result_limit",
+        "query_chars",
         "fuzzy_gap",
         "fuzzy_miss",
         "lyric_chars",
@@ -154,13 +151,10 @@
         "foreground_open_scale",
         "positional_threshold",
         "fling_dp_per_s",
-        "spring_damping",
         "spring_stiffness",
         "surface",
         "row_height_dp",
-        "title_sp",
         "row_sp",
-        "pad_dp",
         "top_pad_dp",
         "bar_padding_dp",
         "menu_radius_dp",
@@ -188,27 +182,26 @@
         "logo_gap_dp",
         "title_sp",
         "artist_sp",
+        "font_weight_regular",
+        "font_weight_light",
+        "font_weight_bold",
+        "font_weight_heavy",
         "duration_sp",
         "compact_cover_dp",
-        "compact_side_gap_dp",
         "metadata_line_gap_dp",
+        "lyric_inset_dp",
         "clock_fallback_dp",
         "clock_lyric_gap_dp",
-        "side_text_cover_dp",
-        "side_text_gap_dp",
         "side_pad_dp",
         "header_sp",
         "row_height_dp",
         "row_title_sp",
         "row_meta_sp",
+        "row_title_lines",
         "row_line_gap_dp",
-        "group_indent_dp",
-        "group_chevron_dp",
-        "group_long_press_ms",
         "cover_dp",
         "cover_radius_dp",
-        "cover_gap_dp",
-        "cover_inset_dp",
+        "orientation_ms",
         "art_fraction",
         "art_radius_dp",
         "art_top_dp",
@@ -218,6 +211,13 @@
         "progress_touch_dp",
         "progress_gap_dp",
         "clock_gap_dp",
+        "progress_start_luma",
+        "progress_peak",
+        "progress_head_scale",
+        "progress_taper",
+        "progress_glow_dp",
+        "progress_glow_alpha",
+        "progress_glow_birth_ms",
         "progress_active_alpha",
         "progress_idle_alpha",
         "empty_cover_alpha",
@@ -226,6 +226,16 @@
         "control_gap_dp",
         "lyric_line_gap_dp",
         "lyric_caption_gap_dp",
+        "lyric_speaker_size_ratio",
+        "lyric_speaker_expanded_ratio",
+        "lyric_speaker_gap_dp",
+        "lyric_show_translation",
+        "lyric_show_phonetic",
+        "lyric_show_speaker",
+        "lyric_mini_gap_dp",
+        "lyric_gap_min_dp",
+        "lyric_gap_max_dp",
+        "artist_inactive_alpha",
         "lyric_follow_ms",
         "lyric_relocation_factor",
         "lyric_chain_stiffness",
@@ -245,10 +255,20 @@
         "lyric_phonetic_sp",
         "lyric_bg_sp",
         "lyric_bg_mini_sp",
+        "lyric_bg_translation_sp",
+        "lyric_bg_translation_mini_sp",
+        "lyric_bg_translation_alpha",
         "lyric_bg_blur_dp",
+        "lyric_edge_feather_dp",
+        "lyric_near_blur_ratio",
+        "lyric_inactive_blur_dp",
+        "lyric_inactive_alpha",
+        "text_tail_fade_dp",
+        "text_tail_blur_dp",
         "lyric_ruby_sp",
         "lyric_ruby_em",
         "lyric_resume_ms",
+        "lyric_controls_hide_ms",
         "lyric_breath_threshold_ms",
         "lyric_breath_count",
         "lyric_breath_size_dp",
@@ -259,10 +279,64 @@
         "lyric_breath_still_ms",
         "lyric_breath_exit_ms",
         "cover_placeholder",
-        "touch_slop_dp",
         "settle_px",
         "lyric_lift_px",
-        "lyric_lift_ms"
+        "lyric_lift_ms",
+        "lyric_lift_min_px",
+        "lyric_lift_max_px",
+        "lyric_lift_link",
+        "lyric_lift_context_ms",
+        "lyric_lift_lead_ms",
+        "lyric_lift_step_ms",
+        "lyric_lift_peak_ratio",
+        "lyric_note_minimum_ms",
+        "lyric_note_unit_ms",
+        "lyric_note_duration_ratio",
+        "lyric_glow_alpha",
+        "lyric_glow_radius_px"
+      ],
+      "immersive": [
+        "jelly_freeze_ms",
+        "jelly_melt_ms",
+        "jelly_strength",
+        "jelly_dispersion",
+        "jelly_phase",
+        "haptic_step",
+        "flow_strength",
+        "reflection_side",
+        "reflection_sigma",
+        "reflection_alpha",
+        "reflection_start",
+        "reflection_feather",
+        "card_scale",
+        "glass_tint_alpha",
+        "glass_max_luma",
+        "glass_blur_dp",
+        "glass_feather_dp",
+        "card_reveal_fraction",
+        "gesture_lower_dp",
+        "preload_radius",
+        "preload_cover_px",
+        "art_width_ratio",
+        "cover_fade_start",
+        "title_sp",
+        "artist_sp",
+        "artist_alpha",
+        "title_gap_dp",
+        "lyric_preview_dp",
+        "lyric_veil_dp",
+        "progress_height_dp",
+        "progress_gap_dp",
+        "time_sp",
+        "max_control_dp",
+        "swipe_fraction",
+        "swipe_velocity_dp",
+        "drag_damping",
+        "settle_damping",
+        "settle_stiffness",
+        "switch_ms",
+        "time_show_ms",
+        "time_fade_ms"
       ],
       "flow": [
         "fallback0",
@@ -280,28 +354,14 @@
         "saturation",
         "dim",
         "morph_ms",
+        "morph_min_ms",
+        "morph_color_distance",
         "morph_accent_ms",
         "cover_morph_ms"
       ],
       "scroll": [
-        "friction_per_s",
-        "friction_floor_per_s",
-        "friction_ref_dp_per_s",
-        "lift_gain",
-        "lift_ref_dp_per_s",
-        "stop_dp_per_s",
-        "max_dp_per_s",
-        "min_fling_dp_per_s",
         "rubber_dp",
-        "rubber_scale",
-        "stiffness",
-        "damping",
-        "settle_px",
-        "impact_retain",
-        "impact_dp_per_s",
-        "chain_retain",
-        "chain_window_s",
-        "velocity_window_ms"
+        "rubber_scale"
       ],
       "quality": [
         "initial_frame_ms",
@@ -314,8 +374,24 @@
       ],
       "playback": [
         "checkpoint_ms",
+        "drain_stall_ms",
         "buffer_capacity_ms",
         "buffer_bursts"
+      ],
+      "visualization": [
+        "enabled",
+        "strength",
+        "medium_low_frequency",
+        "low_low_frequency",
+        "low_impact",
+        "haptic_steps",
+        "slider_fraction",
+        "slider_height_dp",
+        "slider_inset_dp",
+        "disabled_alpha",
+        "custom",
+        "minimum",
+        "maximum"
       ],
       "rhythm": [
         "bass_hz",
@@ -355,47 +431,54 @@
         "rim_light",
         "rim_width_dp"
       ],
+      "card_shadow": [
+        "alpha",
+        "player_elevation_dp",
+        "settings_elevation_dp"
+      ],
       "system": [
+        "screen_off_throttle",
         "hide_status_bar",
-        "hide_navigation_bar"
+        "hide_navigation_bar",
+        "haptics",
+        "haptics_tap",
+        "haptics_slide",
+        "haptics_long_press"
       ],
       "settings": [
-        "padding_dp",
-        "gap_dp",
         "switch_width_dp",
         "switch_height_dp",
         "switch_thumb_dp",
         "switch_off_alpha",
-        "install_button_radius_dp"
+        "install_button_radius_dp",
+        "card_radius_dp",
+        "row_height_dp",
+        "separator_alpha",
+        "page_tint_alpha",
+        "plugin_skeleton_rows",
+        "plugin_skeleton_gap_dp",
+        "plugin_skeleton_alpha",
+        "plugin_skeleton_error_alpha",
+        "plugin_skeleton_shimmer",
+        "plugin_skeleton_icon_ratio",
+        "plugin_skeleton_bar_ratio",
+        "plugin_skeleton_title_ratio",
+        "plugin_skeleton_meta_ratio",
+        "plugin_list_icon_dp",
+        "plugin_value_ratio",
+        "plugin_readme_preview_dp",
+        "plugin_readme_preview_bytes",
+        "plugin_readme_fade_dp"
       ],
       "about": [
-        "avatar_url",
-        "avatar_timeout_ms",
         "logo_dp",
-        "avatar_dp",
-        "avatar_sample_factor",
-        "avatar_min_px",
-        "avatar_max_px",
-        "hero_gap_dp",
-        "section_gap_dp",
-        "block_gap_dp",
         "name_sp",
         "slogan_sp",
         "version_sp",
-        "section_sp",
-        "body_sp",
-        "meta_sp",
-        "license_row_dp",
-        "avatar_gap_dp",
-        "thanks_gap_dp",
-        "thanks_quote_sp",
-        "signature_asset",
-        "signature_width_dp",
         "hero_top_dp",
+        "signature_width_dp",
         "logo_fraction",
-        "rule_alpha",
-        "rule_dp",
-        "quote_inset_dp"
+        "rule_dp"
       ],
       "artwork": [
         "enabled",
@@ -405,8 +488,14 @@
         "pause_with_music",
         "directories",
         "max_embedded_mib",
-        "video_hide_lyrics_t",
-        "video_min_cover_px"
+        "video_min_cover_px",
+        "video_cache_side_px",
+        "video_source_max_side_px",
+        "video_source_max_pixels",
+        "video_cache_mbps",
+        "video_cache_mb",
+        "video_cache_files",
+        "video_cache_timeout_s"
       ],
       "plugin_install": [
         "max_bytes",
@@ -422,7 +511,6 @@
         "product_sp",
         "body_sp",
         "amount_sp",
-        "gap_dp",
         "option_dp",
         "button_dp",
         "notice_ms"
@@ -451,6 +539,7 @@
         "transition_ms"
       ],
       "plugin_repository": [
+        "request_workers",
         "sources",
         "public_key",
         "index_limit_bytes",
@@ -465,10 +554,10 @@
       "plugin_market": [
         "action_width_dp",
         "action_height_dp",
-        "markdown_lines_per_block",
         "estimated_line_height"
       ],
       "profile": [
+        "artist_compounds",
         "sidecar_extensions",
         "max_lyric_file_bytes",
         "genre_rules",
@@ -494,11 +583,156 @@
         "resource_bytes",
         "resource_timeout_ms",
         "resource_workers",
-        "resource_chunk_bytes"
+        "resource_chunk_bytes",
+        "resource_cache_bytes"
+      ],
+      "layout": [
+        "min_gap_dp"
       ],
       "geometry": [
+        "back_button_dp",
+        "back_arrow_dp",
         "chevron_span_dp",
         "chevron_stroke_dp"
+      ],
+      "personal": [
+        "block_confirm_count",
+        "cover_icon_inset_dp",
+        "sort_anchor",
+        "question_gap_dp",
+        "press_scale",
+        "press_hold_scale",
+        "delete_color",
+        "menu_width_dp",
+        "dialog_width_dp",
+        "line_dp",
+        "hint_sp",
+        "file_bytes",
+        "playlist_limit",
+        "name_bytes",
+        "track_limit"
+      ],
+      "listening": [
+        "checkpoint_ms",
+        "gap_dp",
+        "caption_dp",
+        "text_sp",
+        "color_0",
+        "color_1",
+        "color_2",
+        "color_3",
+        "color_4",
+        "minutes_2",
+        "minutes_3",
+        "minutes_4"
+      ],
+      "landscape": [
+        "drawer_fraction",
+        "cover_dp",
+        "min_player_dp",
+        "cell_dp",
+        "immersive_cover_dp",
+        "immersive_header_start",
+        "immersive_field_wash"
+      ],
+      "transitions": [
+        "cover",
+        "background"
+      ],
+      "audio_transition": [
+        "enabled",
+        "automatic_ms",
+        "manual_ms"
+      ],
+      "lyric_credits": [
+        "narrative_subjects",
+        "block_min_anchors",
+        "role_modifiers",
+        "max_header_bytes",
+        "roles",
+        "prefixes",
+        "aliases",
+        "edge_lines",
+        "max_label_bytes"
+      ],
+      "lyric_translation": [
+        "inline_min_pairs"
+      ],
+      "library": [
+        "rail_idle_ms",
+        "rail_dp",
+        "rail_hit_dp",
+        "rail_min_dp",
+        "index_sp",
+        "index_fade_ms",
+        "cache_bytes",
+        "read_timeout_ms",
+        "read_workers",
+        "scan_max_depth",
+        "scan_max_entries",
+        "sort"
+      ],
+      "typography": [
+        "minimum_weight",
+        "maximum_weight",
+        "weight_step",
+        "preferred_families",
+        "import_mime_types",
+        "family",
+        "follow_system",
+        "follow_parameters",
+        "minimum_ratio",
+        "maximum_ratio",
+        "minimum_size_sp",
+        "maximum_size_sp",
+        "import_max_bytes",
+        "import_timeout_ms",
+        "import_limit",
+        "recommended_limit",
+        "sizes",
+        "bold",
+        "weights"
+      ],
+      "audio_quality": [
+        "enabled",
+        "text_width_ratio",
+        "atmos_color",
+        "height_dp",
+        "pad_dp",
+        "gap_dp",
+        "radius_dp",
+        "wash_alpha",
+        "cd_rate",
+        "hr_rate",
+        "hr_bits",
+        "lossy_color",
+        "lossless_color",
+        "hr_color",
+        "dsd_color"
+      ],
+      "audio_focus": [
+        "duck_gain",
+        "ramp_ms"
+      ],
+      "font_fit": [
+        "width_px",
+        "height_px",
+        "small_px",
+        "large_px",
+        "padding_px",
+        "alpha_threshold",
+        "minimum_counter_pixels",
+        "counter_area_ratio",
+        "step",
+        "stroke_em_per_weight",
+        "max_tables",
+        "max_axes",
+        "sample"
+      ],
+      "sleep": [
+        "min_minutes",
+        "max_minutes",
+        "default_minutes"
       ]
     },
     "zh-Hans": {
@@ -508,12 +742,26 @@
         "library_title",
         "library_artist",
         "library_album",
+        "sort_header",
+        "sort_default",
+        "sort_title_asc",
+        "sort_title_desc",
+        "sort_file_asc",
+        "sort_file_desc",
+        "sort_duration_asc",
+        "sort_duration_desc",
+        "sort_size_asc",
+        "sort_size_desc",
+        "sort_added_asc",
+        "sort_added_desc",
+        "sort_year_asc",
+        "sort_year_desc",
         "library_profile",
         "unknown_album",
         "settings_title",
         "search_placeholder",
         "search_empty",
-        "sheet_title",
+        "info_labels",
         "mode_order",
         "mode_repeat",
         "mode_one",
@@ -525,7 +773,8 @@
         "bool_on",
         "bool_off",
         "style_bloom",
-        "style_ember"
+        "style_ember",
+        "style_immersive"
       ],
       "settings": [
         "shell_width",
@@ -537,12 +786,39 @@
         "config_dir"
       ],
       "plugin_settings": [
+        "lyrics_settings",
+        "lyrics_translation",
+        "lyrics_phonetic",
+        "lyrics_speaker",
+        "lyrics_mini_gap",
+        "lyrics_expanded_gap",
         "builtin",
         "external",
         "install",
         "progress_relative",
         "hide_status",
         "hide_navigation",
+        "transitions",
+        "cover_transition",
+        "background_transition",
+        "audio_transition",
+        "visualization",
+        "background_visualization",
+        "visualization_strength",
+        "visualization_low",
+        "visualization_medium",
+        "visualization_high",
+        "visualization_selected",
+        "visualization_custom",
+        "quality_badges",
+        "screen_off_throttle",
+        "haptic_feedback",
+        "haptic_settings_title",
+        "haptic_tap",
+        "haptic_slide",
+        "haptic_long_press",
+        "version_label",
+        "size_label",
         "artwork_motion",
         "artwork_prefer",
         "artwork_embedded_first",
@@ -568,51 +844,10 @@
       "about": [
         "app_name",
         "slogan",
-        "developer_section",
-        "developer_name",
-        "developer_handle",
         "thanks_section",
-        "thanks_p0",
-        "thanks_p1",
-        "thanks_p2",
+        "thanks_url",
         "licenses_section",
-        "license_note",
-        "pugixml",
-        "pugixml_license",
-        "cjson",
-        "cjson_license",
-        "ripple",
-        "ripple_license",
-        "solar",
-        "solar_license",
-        "llvm",
-        "llvm_license",
-        "unicode",
-        "unicode_license",
-        "thanks_0_name",
-        "thanks_0_quote",
-        "thanks_1_name",
-        "thanks_1_quote",
-        "thanks_2_name",
-        "thanks_2_quote",
-        "thanks_3_name",
-        "thanks_3_quote",
-        "thanks_4_name",
-        "thanks_4_quote",
-        "thanks_5_name",
-        "thanks_5_quote",
-        "thanks_6_name",
-        "thanks_6_quote",
-        "thanks_7_name",
-        "thanks_7_quote",
-        "thanks_8_name",
-        "thanks_8_quote",
-        "thanks_9_name",
-        "thanks_9_quote",
-        "thanks_10_name",
-        "thanks_10_quote",
-        "thanks_11_name",
-        "thanks_11_quote"
+        "licenses_url"
       ],
       "support": [
         "entry",
@@ -667,6 +902,66 @@
         "genre",
         "folder",
         "language"
+      ],
+      "personal_copy": [
+        "block_prompt",
+        "play_next",
+        "append_queue",
+        "block_folder",
+        "remove_queue",
+        "playlist_count_suffix",
+        "category_count_suffix",
+        "mine",
+        "auto",
+        "empty",
+        "create",
+        "name",
+        "confirm",
+        "cancel",
+        "dissolve",
+        "add",
+        "delete",
+        "delete_prompt",
+        "delete_music",
+        "delete_end",
+        "error",
+        "back"
+      ],
+      "listening_copy": [
+        "title"
+      ],
+      "visualization_parameters": [
+        "strength",
+        "low_frequency",
+        "impact",
+        "dilation",
+        "displacement",
+        "brightness",
+        "highlights",
+        "speed_boost",
+        "lobe_scale",
+        "contrast",
+        "saturation",
+        "size_exchange",
+        "attack_ms",
+        "release_ms",
+        "handoff_hold_ms",
+        "track_blend_ms",
+        "background_blur",
+        "background_saturation",
+        "background_dim",
+        "top_rotation",
+        "bottom_rotation",
+        "container_rotation",
+        "color_morph_ms",
+        "accent_morph_ms",
+        "cover_morph_ms",
+        "immersive_strength"
+      ],
+      "sleep_copy": [
+        "title",
+        "start",
+        "stop"
       ]
     }
   },
@@ -857,10 +1152,15 @@
       "config_tables": []
     },
     "playback": {
-      "config_tables": []
+      "config_tables": [
+        "audio_transition"
+      ]
     },
     "playback-memory": {
-      "config_tables": []
+      "config_tables": [
+        "listening",
+        "listening_copy"
+      ]
     },
     "playback-rules": {
       "config_tables": []
@@ -886,10 +1186,18 @@
         "plugin_repository"
       ]
     },
+    "personal-library": {
+      "config_tables": [
+        "personal",
+        "personal_copy"
+      ]
+    },
     "profile": {
       "config_tables": [
         "profile",
-        "profile_copy"
+        "profile_copy",
+        "listening",
+        "listening_copy"
       ]
     },
     "profile-classification": {
@@ -936,13 +1244,26 @@
       ]
     },
     "style-picker": {
-      "config_tables": []
+      "config_tables": [
+        "style"
+      ]
     },
     "style.bloom": {
       "config_tables": []
     },
     "style.ember": {
       "config_tables": []
+    },
+    "style.immersive": {
+      "config_tables": [
+        "immersive"
+      ]
+    },
+    "scan-strategy": {
+      "config_tables": [
+        "scan_strategy",
+        "scan_strategy_copy"
+      ]
     },
     "support-page": {
       "config_tables": [

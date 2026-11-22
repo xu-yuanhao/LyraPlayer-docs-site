@@ -11,7 +11,6 @@ locale = "zh-Hans"
 [style]
 active = "bloom"
 count = 2
-long_press_ms = 450
 picker_scale = 0.82
 picker_side_scale = 0.72
 picker_gap_dp = 16
@@ -21,12 +20,10 @@ ripple_cancel_ms = 120
 ripple_strength = 0.45
 picker_scrim = 0.52
 picker_fling_dp = 280
-picker_stiffness = 200
-picker_damping = 14
+picker_stiffness = 1000
 picker_drag_fraction = 0.52
 picker_drag_gain = 1.35
 picker_fling_step = 0.55
-picker_overscroll = 0.2
 
 [logo]
 duration_ms = 3800
@@ -52,8 +49,9 @@ yellow0 = "#FFB900"
 yellow1 = "#FFD11A"
 
 [shell]
-drawer_width_fraction = 0.8
-drawer_max_width_dp = 326
+system_edge_dp = 24
+drawer_width_fraction = 0.9
+drawer_max_width_dp = 420
 foreground_open_scale = 0.92
 positional_threshold = 0.5
 spring_damping = 1
@@ -71,9 +69,8 @@ frost_feather_dp = 56
 frost_wash = 0.46
 
 [dock]
+max_icon_distance_dp = 72
 height_dp = 56
-inset_x_dp = 20
-inset_b_dp = 12
 icon_dp = 24
 min_corner_dp = 12
 blur_dp = 32
@@ -88,22 +85,22 @@ minimum_visible_foreground_dp = 112
 foreground_open_scale = 0.96
 positional_threshold = 0.2
 fling_dp_per_s = 220
-spring_damping = 1
-spring_stiffness = 900
+spring_stiffness = 1000
 surface = "#F8F8FA"
 field_height_dp = 52
 field_radius_dp = 26
 field_surface = "#E9E9EE"
-horizontal_padding_dp = 16
+horizontal_padding_dp = 28
 top_padding_dp = 12
 top_gesture_dp = 96
 gesture_cover_fraction = 1
 result_limit = 48
+query_chars = 64
 fuzzy_gap = 1
 fuzzy_miss = 1
 lyric_chars = 2048
-index_gap_ms = 40
-row_height_dp = 64
+index_gap_ms = 0
+row_height_dp = 56
 
 [sheet]
 # Open height matches the downward search panel; playback queue uses the configured search row metrics.
@@ -112,13 +109,10 @@ minimum_visible_foreground_dp = 112
 foreground_open_scale = 0.96
 positional_threshold = 0.34
 fling_dp_per_s = 220
-spring_damping = 1
-spring_stiffness = 900
+spring_stiffness = 1000
 surface = "#FFFFFF"
 row_height_dp = 40
-title_sp = 16
 row_sp = 16
-pad_dp = 20
 top_pad_dp = 0
 bar_padding_dp = 8
 menu_radius_dp = 14
@@ -147,27 +141,27 @@ button_text_sp = 16
 logo_gap_dp = 28
 title_sp = 24
 artist_sp = 16
+# Typography has one internal scale. System font size and bold settings are not followed.
+font_weight_regular = 400
+font_weight_light = 300
+font_weight_bold = 700
+font_weight_heavy = 900
 duration_sp = 12
 compact_cover_dp = 96
-compact_side_gap_dp = 16
 metadata_line_gap_dp = 4
+lyric_inset_dp = 8
 clock_fallback_dp = 96
 clock_lyric_gap_dp = 12
-side_text_cover_dp = 96
-side_text_gap_dp = 16
 side_pad_dp = 32
 header_sp = 20
-row_height_dp = 64
+row_height_dp = 56
 row_title_sp = 16
 row_meta_sp = 12
+row_title_lines = 2
 row_line_gap_dp = 2
-group_indent_dp = 24
-group_chevron_dp = 18
-group_long_press_ms = 450
-cover_dp = 48
+cover_dp = 46
 cover_radius_dp = 8
-cover_gap_dp = 12
-cover_inset_dp = 20
+orientation_ms = 450
 art_fraction = 0.44
 art_radius_dp = 20
 art_top_dp = 48
@@ -177,7 +171,14 @@ progress_height_dp = 8
 progress_touch_dp = 48
 progress_gap_dp = 48
 clock_gap_dp = 8
-progress_active_alpha = 0.74
+progress_start_luma = 0.55
+progress_peak = 1
+progress_head_scale = 1.12
+progress_taper = 3
+progress_glow_dp = 8
+progress_glow_alpha = 0.55
+progress_glow_birth_ms = 700
+progress_active_alpha = 0.5
 progress_idle_alpha = 0.2
 empty_cover_alpha = 0.1
 control_touch_dp = 56
@@ -185,6 +186,16 @@ control_icon_dp = 48
 control_gap_dp = 28
 lyric_line_gap_dp = 32
 lyric_caption_gap_dp = 8
+lyric_speaker_size_ratio = 0.8
+lyric_speaker_expanded_ratio = 0.65
+lyric_speaker_gap_dp = 8
+lyric_show_translation = true
+lyric_show_phonetic = true
+lyric_show_speaker = true
+lyric_mini_gap_dp = 16
+lyric_gap_min_dp = 8
+lyric_gap_max_dp = 48
+artist_inactive_alpha = 0.4
 lyric_follow_ms = 650
 lyric_relocation_factor = 3
 lyric_chain_stiffness = 100
@@ -198,17 +209,27 @@ lyric_mini_anchor_dp = 40
 lyric_mini_top_fade_dp = 16
 lyric_veil_dp = 32
 lyric_main_mini_sp = 20
-lyric_main_expanded_sp = 34
+lyric_main_expanded_sp = 38
 lyric_translation_mini_sp = 16
 lyric_translation_expanded_sp = 20
 lyric_phonetic_sp = 13
 lyric_bg_sp = 20
 lyric_bg_mini_sp = 16
-lyric_bg_blur_dp = 8
+lyric_bg_translation_sp = 16
+lyric_bg_translation_mini_sp = 13
+lyric_bg_translation_alpha = 0.6
+lyric_bg_blur_dp = 4
+lyric_edge_feather_dp = 16
+lyric_near_blur_ratio = 0.9
+lyric_inactive_blur_dp = 3
+lyric_inactive_alpha = 0.36
+text_tail_fade_dp = 20
+text_tail_blur_dp = 4
 lyric_ruby_sp = 13
 # Unused by layout. A song's lyric gap is the widest reading's overflow, shared by every line of that size.
 lyric_ruby_em = 2.15
 lyric_resume_ms = 2500
+lyric_controls_hide_ms = 2500
 lyric_breath_threshold_ms = 5000
 lyric_breath_count = 3
 lyric_breath_size_dp = 16
@@ -219,10 +240,65 @@ lyric_breath_dip_ms = 3000
 lyric_breath_still_ms = 200
 lyric_breath_exit_ms = 200
 cover_placeholder = "#E6E6EB"
-touch_slop_dp = 8
 settle_px = 0.5
 lyric_lift_px = 4
 lyric_lift_ms = 700
+lyric_lift_min_px = 2
+lyric_lift_max_px = 8
+lyric_lift_link = 0.28
+lyric_lift_context_ms = 500
+lyric_lift_lead_ms = 160
+lyric_lift_step_ms = 180
+lyric_lift_peak_ratio = 0.55
+lyric_note_minimum_ms = 1000
+lyric_note_unit_ms = 200
+lyric_note_duration_ratio = 0.8
+lyric_glow_alpha = 0.65
+lyric_glow_radius_px = 10
+
+[immersive]
+jelly_freeze_ms = 1600
+jelly_melt_ms = 1400
+jelly_strength = 0.18
+jelly_dispersion = 0.009
+jelly_phase = 0.42
+haptic_step = 0.12
+flow_strength = 0.45
+reflection_side = 48
+reflection_sigma = 5
+reflection_alpha = 0.24
+reflection_start = 0.44
+reflection_feather = 0.22
+card_scale = 0.9
+glass_tint_alpha = 0.08
+glass_max_luma = 0.8
+glass_blur_dp = 6
+glass_feather_dp = 64
+card_reveal_fraction = 0.12
+gesture_lower_dp = 28
+preload_radius = 2
+preload_cover_px = 1024
+# 沉浸封面播放页:清晰/动态封面贴顶,渐隐到与前两种样式共用的流动律动背景。
+art_width_ratio = 1.0
+cover_fade_start = 0.65
+title_sp = 24
+artist_sp = 16
+artist_alpha = 0.7
+title_gap_dp = 8
+lyric_preview_dp = 200
+lyric_veil_dp = 24
+progress_height_dp = 8
+progress_gap_dp = 10
+time_sp = 12
+max_control_dp = 420
+swipe_fraction = 0.15
+swipe_velocity_dp = 260
+drag_damping = 0.9
+settle_damping = 1
+settle_stiffness = 900
+switch_ms = 240
+time_show_ms = 2000
+time_fade_ms = 300
 
 [flow]
 # Same fallback palette as rewrite; cover loading/failure still has a reactive field.
@@ -241,28 +317,14 @@ container_den = 0.034
 saturation = 2.5
 dim = 0.75
 morph_ms = 14000
+morph_min_ms = 1200
+morph_color_distance = 0.45
 morph_accent_ms = 10000
 cover_morph_ms = 1400
 
 [scroll]
-friction_per_s = 3.1
-friction_floor_per_s = 0.55
-friction_ref_dp_per_s = 600
-lift_gain = 0.85
-lift_ref_dp_per_s = 300
-stop_dp_per_s = 6
-max_dp_per_s = 7200
-min_fling_dp_per_s = 6
 rubber_dp = 64
 rubber_scale = 2.4
-stiffness = 280
-damping = 1
-settle_px = 0.5
-impact_retain = 0.45
-impact_dp_per_s = 600
-chain_retain = 0.9
-chain_window_s = 0.7
-velocity_window_ms = 24
 
 [quality]
 initial_frame_ms = 16
@@ -275,9 +337,108 @@ text_batch_jobs = 16
 
 [playback]
 checkpoint_ms = 1000
-# Zero preserves the device's own capacity/size; avoid forcing a two-second FIFO.
-buffer_capacity_ms = 0
-buffer_bursts = 0
+# Optional screen-off throttling reserves a larger buffer. Disabled by default
+# because changing HAL capacity can interrupt playback at screen transitions.
+drain_stall_ms = 30000
+buffer_capacity_ms = 1200
+buffer_bursts = 2
+
+[visualization]
+enabled = true
+strength = "high"
+medium_low_frequency = 0.3
+low_low_frequency = 0.15
+low_impact = 0.35
+haptic_steps = 12
+slider_fraction = 0.48
+slider_height_dp = 32
+slider_inset_dp = 12
+disabled_alpha = 0.35
+
+
+[visualization.custom]
+strength = 0.85
+low_frequency = 1
+impact = 1
+dilation = 0.16
+displacement = 0.065
+brightness = 0.14
+highlights = 0.12
+speed_boost = 1.8
+lobe_scale = 0.5
+contrast = 0.32
+saturation = 0.28
+size_exchange = 1
+attack_ms = 35
+release_ms = 180
+handoff_hold_ms = 250
+track_blend_ms = 180
+background_blur = 31.77
+background_saturation = 2.5
+background_dim = 0.75
+top_rotation = 1.2
+bottom_rotation = 0.67
+container_rotation = -0.6
+color_morph_ms = 14000
+accent_morph_ms = 10000
+cover_morph_ms = 1400
+immersive_strength = 0.45
+
+[visualization.minimum]
+strength = 0
+low_frequency = 0
+impact = 0
+dilation = 0
+displacement = 0
+brightness = 0
+highlights = 0
+speed_boost = 0
+lobe_scale = 0
+contrast = 0
+saturation = 0
+size_exchange = 0
+attack_ms = 1
+release_ms = 10
+handoff_hold_ms = 0
+track_blend_ms = 1
+background_blur = 20
+background_saturation = 0.5
+background_dim = 0.35
+top_rotation = -4
+bottom_rotation = -4
+container_rotation = -4
+color_morph_ms = 1
+accent_morph_ms = 1
+cover_morph_ms = 1
+immersive_strength = 0
+
+[visualization.maximum]
+strength = 1.6
+low_frequency = 1
+impact = 1
+dilation = 0.5
+displacement = 0.2
+brightness = 0.5
+highlights = 0.5
+speed_boost = 5
+lobe_scale = 0.5
+contrast = 0.8
+saturation = 1
+size_exchange = 1
+attack_ms = 200
+release_ms = 1000
+handoff_hold_ms = 1000
+track_blend_ms = 1000
+background_blur = 100
+background_saturation = 4
+background_dim = 0.9
+top_rotation = 4
+bottom_rotation = 4
+container_rotation = 4
+color_morph_ms = 30000
+accent_morph_ms = 30000
+cover_morph_ms = 10000
+immersive_strength = 1
 
 [rhythm]
 # Match rewrite music-reactive defaults; retain presentation timing and song handoff.
@@ -312,54 +473,61 @@ pinch_attack_ms = 100
 pinch_release_ms = 400
 elevation_dp = 24
 compact_elevation_dp = 6
-shadow_alpha = 0.16
+shadow_alpha = 0.12
 shadow_blur = 0.75
 rim_dark = 0.06
 rim_light = 0.12
 rim_width_dp = 0.6
 
+[card_shadow]
+alpha = 0.10
+player_elevation_dp = 18
+settings_elevation_dp = 0
+
 [system]
+screen_off_throttle = false
 hide_status_bar = false
 hide_navigation_bar = false
+haptics = true
+haptics_tap = true
+haptics_slide = true
+haptics_long_press = true
 
 [settings]
-padding_dp = 20
-gap_dp = 12
 switch_width_dp = 44
 switch_height_dp = 24
 switch_thumb_dp = 20
 switch_off_alpha = 0.25
 install_button_radius_dp = 12
+card_radius_dp = 28
+row_height_dp = 56
+separator_alpha = 0.3
+page_tint_alpha = 0.06
+plugin_skeleton_rows = 8
+plugin_skeleton_gap_dp = 10
+plugin_skeleton_alpha = 0.14
+plugin_skeleton_error_alpha = 0.16
+plugin_skeleton_shimmer = 0.35
+plugin_skeleton_icon_ratio = 0.62
+plugin_skeleton_bar_ratio = 0.16
+plugin_skeleton_title_ratio = 0.55
+plugin_skeleton_meta_ratio = 0.32
+plugin_list_icon_dp = 18
+plugin_value_ratio = 0.6
+plugin_readme_preview_dp = 200
+plugin_readme_preview_bytes = 4096
+plugin_readme_fade_dp = 26
 
 [about]
-avatar_url = "https://github.com/xu-yuanhao.png"
-avatar_timeout_ms = 6000
 logo_dp = 72
-avatar_dp = 48
-avatar_sample_factor = 2
-avatar_min_px = 64
-avatar_max_px = 256
-hero_gap_dp = 18
-section_gap_dp = 30
-block_gap_dp = 12
 name_sp = 22
 slogan_sp = 16
 version_sp = 12
-section_sp = 12
-body_sp = 16
-meta_sp = 12
-license_row_dp = 36
-avatar_gap_dp = 14
-thanks_gap_dp = 22
-thanks_quote_sp = 13
 
-signature_asset = "brand/signature.svg"
-signature_width_dp = 224
 hero_top_dp = 20
+signature_width_dp = 224
 logo_fraction = 0.25
-rule_alpha = 0.12
 rule_dp = 0.5
-quote_inset_dp = 12
 
 [artwork]
 enabled = true
@@ -367,10 +535,16 @@ prefer_embedded = true
 embedded = true
 sidecars = true
 pause_with_music = true
-directories = "covers,cover,videos,video,视频"
+directories = "covers,cover,videos,video,视频,anim"
 max_embedded_mib = 32
-video_hide_lyrics_t = 0.85
 video_min_cover_px = 8
+video_cache_side_px = 1024
+video_source_max_side_px = 16384
+video_source_max_pixels = 67108864
+video_cache_mbps = 8
+video_cache_mb = 50
+video_cache_files = 3
+video_cache_timeout_s = 120
 
 [plugin_install]
 max_bytes = 33554432
@@ -387,7 +561,6 @@ amounts_fen = "1500"
 product_sp = 26
 body_sp = 16
 amount_sp = 36
-gap_dp = 24
 option_dp = 68
 button_dp = 52
 notice_ms = 2800
@@ -401,8 +574,8 @@ status_light_luma = 0.42
 status_dark_luma = 0.62
 follow_system = true
 dark = false
-light_surface = "#F8F9FB"
-dark_surface = "#101014"
+light_surface = "#FFFFFF"
+dark_surface = "#1F1F22"
 light_ink = "#17171B"
 dark_ink = "#F5F5FA"
 light_secondary = "#65656B"
@@ -411,15 +584,16 @@ light_action = "#242428"
 dark_action = "#D8D8DE"
 light_action_ink = "#FAFAFC"
 dark_action_ink = "#202024"
-tint_light = 0.06
-tint_dark = 0.32
+tint_light = 0
+tint_dark = 0
 transition_ms = 350
 
 [plugin_repository]
-sources = "https://raw.githubusercontent.com/xu-yuanhao/LyraPlayer-plugins/main/catalog/index.json|https://gitlab.com/x13102306563/lyraplayer-plugins/-/raw/main/catalog/index.json"
-public_key = "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsUPdZufmDdUja9ZiCGaPVLNi6w/gMnSFejYdyZ5Dc7NW8C1cWQbAFi3JlOXyC2HbYm1kkIVLXOXb9kb4KQulKA=="
+request_workers = 4
+sources = "https://gitee.com/please-call-me-xu-zong/LyraPlayer-plugins/raw/main/catalog/v2/index.json|https://raw.githubusercontent.com/xu-yuanhao/LyraPlayer-plugins/main/catalog/v2/index.json|https://gitlab.com/xu-yuanhao/lyraplayer-plugins/-/raw/main/catalog/v2/index.json"
+public_key = "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEIh3nwL4tJHEpjJ+qeV/bEVZH4byYfverEkMSXbYYaSBaq8I7YFOT8E96GpgHe5ArP6IBICiRki9Tj0+/gHwoMQ=="
 index_limit_bytes = 262144
-archive_limit_bytes = 8388608
+archive_limit_bytes = 33554432
 timeout_ms = 10000
 maximum_rows = 24
 exact_score = 5000
@@ -430,13 +604,13 @@ description_score = 500
 [plugin_market]
 action_width_dp = 72
 action_height_dp = 32
-markdown_lines_per_block = 5
 estimated_line_height = 1.25
 
 [profile]
-sidecar_extensions = ".lrc|.ttml|.lys|.yrc|.qrc|.lrcx"
+artist_compounds = "AC/DC\nEarth, Wind & Fire\nSimon & Garfunkel\nHall & Oates\nDaryl Hall & John Oates\nFlorence + The Machine\nCrosby, Stills, Nash & Young\nCrosby, Stills & Nash\nPeter, Paul and Mary\nEmerson, Lake & Palmer\nBelle & Sebastian\nMike + The Mechanics\nTom Petty & The Heartbreakers\nNick Cave & The Bad Seeds\nMumford & Sons\nYears & Years"
+sidecar_extensions = ".lrc|.ttml|.lys|.yrc|.qrc|.lrcx|.txt"
 max_lyric_file_bytes = 4194304
-genre_rules = "布鲁斯=Blues\n经典摇滚=Classic Rock\n乡村=Country\n舞曲=Dance\n迪斯科=Disco\n放克=Funk\n垃圾摇滚=Grunge\n嘻哈=Hip-Hop|hip hop|hiphop|hip-hop/rap\n爵士=Jazz\n金属=Metal|heavy metal\n新世纪=New Age\nOldies=Oldies\nOther=Other\n流行=Pop|pop music|流行乐\n节奏布鲁斯=R&B|rnb|r and b|r & b|rhythm and blues|r&b/soul\n说唱=Rap\n雷鬼=Reggae\n摇滚=Rock|rock music|摇滚乐\n科技舞曲=Techno\n工业=Industrial\n另类=Alternative\n斯卡=Ska\n死亡金属=Death Metal\nPranks=Pranks\n原声=Soundtrack|ost|original soundtrack\nEuro-Techno=Euro-Techno\n氛围=Ambient\n神游舞曲=Trip-Hop\n人声=Vocal\nJazz+Funk=Jazz+Funk\n融合=Fusion\n迷幻舞曲=Trance\n古典=Classical|classical music|古典音乐\n器乐=Instrumental\nAcid=Acid\n浩室=House\nGame=Game\nSound Clip=Sound Clip\n福音=Gospel\n噪音=Noise\nAlternRock=AlternRock\nBass=Bass\n灵魂=Soul\n朋克=Punk\nSpace=Space\nMeditative=Meditative\nInstrumental Pop=Instrumental Pop\nInstrumental Rock=Instrumental Rock\nEthnic=Ethnic\nGothic=Gothic\nDarkwave=Darkwave\nTechno-Industrial=Techno-Industrial\n电子=Electronic|electronica|electronic music|电子音乐\nPop-Folk=Pop-Folk\nEurodance=Eurodance\nDream=Dream\nSouthern Rock=Southern Rock\nComedy=Comedy\nCult=Cult\nGangsta=Gangsta\nTop 40=Top 40\nChristian Rap=Christian Rap\nPop/Funk=Pop/Funk\nJungle=Jungle\nNative American=Native American\nCabaret=Cabaret\n新浪潮=New Wave\nPsychedelic=Psychedelic\nRave=Rave\nShowtunes=Showtunes\nTrailer=Trailer\n低保真=Lo-Fi\nTribal=Tribal\nAcid Punk=Acid Punk\nAcid Jazz=Acid Jazz\nPolka=Polka\nRetro=Retro\nMusical=Musical\nRock & Roll=Rock & Roll\n硬摇滚=Hard Rock\n民谣=Folk|folk music|民谣音乐\n民谣摇滚=Folk-Rock\nNational Folk=National Folk\n摇摆爵士=Swing\nFast Fusion=Fast Fusion\n比波普=Bebop\nLatin=Latin\nRevival=Revival\nCeltic=Celtic\n蓝草=Bluegrass\nAvantgarde=Avantgarde\nGothic Rock=Gothic Rock\n前卫摇滚=Progressive Rock\nPsychedelic Rock=Psychedelic Rock\nSymphonic Rock=Symphonic Rock\nSlow Rock=Slow Rock\nBig Band=Big Band\nChorus=Chorus\nEasy Listening=Easy Listening\n原声器乐=Acoustic\nHumour=Humour\nSpeech=Speech\nChanson=Chanson\n歌剧=Opera\nChamber Music=Chamber Music\nSonata=Sonata\nSymphony=Symphony\nBooty Bass=Booty Bass\nPrimus=Primus\nPorn Groove=Porn Groove\nSatire=Satire\nSlow Jam=Slow Jam\nClub=Club\nTango=Tango\nSamba=Samba\nFolklore=Folklore\nBallad=Ballad\nPower Ballad=Power Ballad\nRhythmic Soul=Rhythmic Soul\nFreestyle=Freestyle\nDuet=Duet\nPunk Rock=Punk Rock\nDrum Solo=Drum Solo\n无伴奏人声=A Cappella\nEuro-House=Euro-House\nDance Hall=Dance Hall\nGoa=Goa\nDrum & Bass=Drum & Bass\nClub-House=Club-House\nHardcore Techno=Hardcore Techno\nTerror=Terror\nIndie=Indie\nBritPop=BritPop\nNegerpunk=Negerpunk\nPolsk Punk=Polsk Punk\nBeat=Beat\nChristian Gangsta Rap=Christian Gangsta Rap\nHeavy Metal=Heavy Metal\n黑金属=Black Metal\nCrossover=Crossover\nContemporary Christian=Contemporary Christian\nChristian Rock=Christian Rock\nMerengue=Merengue\nSalsa=Salsa\nThrash Metal=Thrash Metal\n动画音乐=Anime|动漫|动漫音乐\nJpop=Jpop\nSynthpop=Synthpop\nAbstract=Abstract\nArt Rock=Art Rock\nBaroque=Baroque\nBhangra=Bhangra\nBig Beat=Big Beat\nBreakbeat=Breakbeat\nChillout=Chillout\nDowntempo=Downtempo\nDub=Dub\nEBM=EBM\nEclectic=Eclectic\nElectro=Electro\nElectroclash=Electroclash\nEmo=Emo\nExperimental=Experimental\nGarage=Garage\nGlobal=Global\nIDM=IDM\nIllbient=Illbient\nIndustro-Goth=Industro-Goth\nJam Band=Jam Band\nKrautrock=Krautrock\nLeftfield=Leftfield\nLounge=Lounge\nMath Rock=Math Rock\nNew Romantic=New Romantic\nNu-Breakz=Nu-Breakz\n后朋克=Post-Punk\n后摇=Post-Rock\nPsytrance=Psytrance\n盯鞋=Shoegaze\nSpace Rock=Space Rock\nTrop Rock=Trop Rock\nWorld Music=World Music\nNeoclassical=Neoclassical\nAudiobook=Audiobook\nAudio Theatre=Audio Theatre\nNeue Deutsche Welle=Neue Deutsche Welle\nPodcast=Podcast\n独立摇滚=Indie Rock|indierock\nG-Funk=G-Funk\nDubstep=Dubstep\nGarage Rock=Garage Rock\nPsybient=Psybient\n另类摇滚=Alternative Rock|alt rock|alternrock\n独立流行=Indie Pop|indiepop\n梦幻流行=Dream Pop\nBritpop=Britpop\nPsychedelic Pop=Psychedelic Pop\nNoise Rock=Noise Rock\nStoner Rock=Stoner Rock\n厄运金属=Doom Metal\n交响金属=Symphonic Metal\nPower Metal=Power Metal\nProgressive Metal=Progressive Metal\n金属核=Metalcore\nDeathcore=Deathcore\nPost-Hardcore=Post-Hardcore\nPop Punk=Pop Punk\nIndie Folk=Indie Folk\nAmericana=Americana\nAlt-Country=Alt-Country\nContemporary Folk=Contemporary Folk\nSinger-Songwriter=Singer-Songwriter\nBossa Nova=Bossa Nova\nSmooth Jazz=Smooth Jazz\nFree Jazz=Free Jazz\nNu Jazz=Nu Jazz\n融合爵士=Jazz Fusion|fusion jazz\nJazz Rap=Jazz Rap\nTrap=Trap\nDrill=Drill\nBoom Bap=Boom Bap\nConscious Hip-Hop=Conscious Hip-Hop\nAlternative Hip-Hop=Alternative Hip-Hop\nCloud Rap=Cloud Rap\nLo-Fi Hip-Hop=Lo-Fi Hip-Hop|lofi beats|lofi hiphop\n新灵魂=Neo Soul\nContemporary R&B=Contemporary R&B\nAlternative R&B=Alternative R&B\nMotown=Motown\nDancehall=Dancehall\nAfrobeat=Afrobeat\nAfrobeats=Afrobeats\nHighlife=Highlife\nAmapiano=Amapiano\n韩国流行=K-Pop\n日本流行=J-Pop\n华语流行=C-Pop\n华语流行=Mandopop|国语流行|mandarin pop|国语\n粤语流行=Cantopop|cantonese pop|粤语\n都市流行=City Pop\nKayokyoku=Kayokyoku\nEnka=Enka\nVocaloid=Vocaloid\nChiptune=Chiptune\n游戏音乐=Video Game Music|vgm|game music\nEDM=EDM\nDeep House=Deep House\nTech House=Tech House\nProgressive House=Progressive House\nElectro House=Electro House\nFuture House=Future House\nBass House=Bass House\nTropical House=Tropical House\nHardstyle=Hardstyle\nDrum and Bass=Drum and Bass|dnb|d&b|drum & bass|drum n bass\nLiquid Drum and Bass=Liquid Drum and Bass\nNeurofunk=Neurofunk\nMelodic Dubstep=Melodic Dubstep\nFuture Bass=Future Bass\nUK Garage=UK Garage\nUK Bass=UK Bass\nBreakcore=Breakcore\nSynthwave=Synthwave\nRetrowave=Retrowave\nVaporwave=Vaporwave\nElectropop=Electropop\nHyperpop=Hyperpop\nAmbient Pop=Ambient Pop\nDark Ambient=Dark Ambient\nDrone=Drone\nExperimental Electronic=Experimental Electronic\nMinimal Techno=Minimal Techno\nMelodic Techno=Melodic Techno\nAcid Techno=Acid Techno\nProgressive Trance=Progressive Trance\nBalearic=Balearic\nNew Classical=New Classical\nModern Classical=Modern Classical\nRomantic=Romantic\n管弦乐=Orchestral\n钢琴=Piano\n合唱=Choral\n电影配乐=Film Score\nMusical Theatre=Musical Theatre\n中国传统音乐=Chinese Traditional|传统音乐\n戏曲=Chinese Opera\n古风=Gufeng|古风音乐\n中国民乐=Chinese Folk|民乐|国乐\nCeltic Folk=Celtic Folk\nIndian Classical=Indian Classical\nBollywood=Bollywood\nQawwali=Qawwali\nFlamenco=Flamenco\nFado=Fado\nBachata=Bachata\nReggaeton=Reggaeton\nLatin Pop=Latin Pop\nLatin Rock=Latin Rock\nCumbia=Cumbia\nMPB=MPB\nBuddhist Chant=Buddhist Chant\nNasheed=Nasheed\nChristian Contemporary=Christian Contemporary\nWorship=Worship\n儿童音乐=Children\n摇篮曲=Lullaby\n朗诵=Spoken Word\nASMR=ASMR\nWorld Fusion=World Fusion"
+genre_rules = "布鲁斯=Blues\n经典摇滚=Classic Rock\n乡村=Country\n舞曲=Dance\n迪斯科=Disco\n放克=Funk\n垃圾摇滚=Grunge\n嘻哈=Hip-Hop|hip hop|hiphop|hip-hop/rap\n爵士=Jazz\n金属=Metal|heavy metal\n新世纪=New Age\nOldies\nOther\n流行=Pop|pop music|流行乐\n节奏布鲁斯=R&B|rnb|r and b|r & b|rhythm and blues|r&b/soul\n说唱=Rap\n雷鬼=Reggae\n摇滚=Rock|rock music|摇滚乐\n科技舞曲=Techno\n工业=Industrial\n另类=Alternative\n斯卡=Ska\n死亡金属=Death Metal\nPranks\n原声=Soundtrack|ost|original soundtrack\nEuro-Techno\n氛围=Ambient\n神游舞曲=Trip-Hop\n人声=Vocal\nJazz+Funk\n融合=Fusion\n迷幻舞曲=Trance\n古典=Classical|classical music|古典音乐\n器乐=Instrumental\nAcid\n浩室=House\nGame\nSound Clip\n福音=Gospel\n噪音=Noise\nBass\n灵魂=Soul\n朋克=Punk\nSpace\nMeditative\nInstrumental Pop\nInstrumental Rock\nEthnic\nGothic\nDarkwave\nTechno-Industrial\n电子=Electronic|electronica|electronic music|电子音乐\nPop-Folk\nEurodance\nDream\nSouthern Rock\nComedy\nCult\nGangsta\nTop 40\nChristian Rap\nPop/Funk\nJungle\nNative American\nCabaret\n新浪潮=New Wave\nPsychedelic\nRave\nShowtunes\nTrailer\n低保真=Lo-Fi\nTribal\nAcid Punk\nAcid Jazz\nPolka\nRetro\nMusical\nRock & Roll\n硬摇滚=Hard Rock\n民谣=Folk|folk music|民谣音乐\n民谣摇滚=Folk-Rock\nNational Folk\n摇摆爵士=Swing\nFast Fusion\n比波普=Bebop\nLatin\nRevival\nCeltic\n蓝草=Bluegrass\nAvantgarde\nGothic Rock\n前卫摇滚=Progressive Rock\nPsychedelic Rock\nSymphonic Rock\nSlow Rock\nBig Band\nChorus\nEasy Listening\n原声器乐=Acoustic\nHumour\nSpeech\nChanson\n歌剧=Opera\nChamber Music\nSonata\nSymphony\nBooty Bass\nPrimus\nPorn Groove\nSatire\nSlow Jam\nClub\nTango\nSamba\nFolklore\nBallad\nPower Ballad\nRhythmic Soul\nFreestyle\nDuet\nPunk Rock\nDrum Solo\n无伴奏人声=A Cappella\nEuro-House\nGoa\nClub-House\nHardcore Techno\nTerror\nIndie\nNegerpunk\nPolsk Punk\nBeat\nChristian Gangsta Rap\nHeavy Metal\n黑金属=Black Metal\nCrossover\nContemporary Christian\nChristian Rock\nMerengue\nSalsa\nThrash Metal\n动画音乐=Anime|动漫|动漫音乐\nSynthpop\nAbstract\nArt Rock\nBaroque\nBhangra\nBig Beat\nBreakbeat\nChillout\nDowntempo\nDub\nEBM\nEclectic\nElectro\nElectroclash\nEmo\nExperimental\nGarage\nGlobal\nIDM\nIllbient\nIndustro-Goth\nJam Band\nKrautrock\nLeftfield\nLounge\nMath Rock\nNew Romantic\nNu-Breakz\n后朋克=Post-Punk\n后摇=Post-Rock\nPsytrance\n盯鞋=Shoegaze\nSpace Rock\nTrop Rock\nWorld Music\nNeoclassical\nAudiobook\nAudio Theatre\nNeue Deutsche Welle\nPodcast\n独立摇滚=Indie Rock|indierock\nG-Funk\nDubstep\nGarage Rock\nPsybient\n另类摇滚=Alternative Rock|alt rock|alternrock\n独立流行=Indie Pop|indiepop\n梦幻流行=Dream Pop\nBritpop\nPsychedelic Pop\nNoise Rock\nStoner Rock\n厄运金属=Doom Metal\n交响金属=Symphonic Metal\nPower Metal\nProgressive Metal\n金属核=Metalcore\nDeathcore\nPost-Hardcore\nPop Punk\nIndie Folk\nAmericana\nAlt-Country\nContemporary Folk\nSinger-Songwriter\nBossa Nova\nSmooth Jazz\nFree Jazz\nNu Jazz\n融合爵士=Jazz Fusion|fusion jazz\nJazz Rap\nTrap\nDrill\nBoom Bap\nConscious Hip-Hop\nAlternative Hip-Hop\nCloud Rap\nLo-Fi Hip-Hop=Lo-Fi Hip-Hop|lofi beats|lofi hiphop\n新灵魂=Neo Soul\nContemporary R&B\nAlternative R&B\nMotown\nDancehall\nAfrobeat\nAfrobeats\nHighlife\nAmapiano\n韩国流行=K-Pop\n日本流行=J-Pop\n华语流行=C-Pop\n华语流行=Mandopop|国语流行|mandarin pop|国语\n粤语流行=Cantopop|cantonese pop|粤语\n都市流行=City Pop\nKayokyoku\nEnka\nVocaloid\nChiptune\n游戏音乐=Video Game Music|vgm|game music\nEDM\nDeep House\nTech House\nProgressive House\nElectro House\nFuture House\nBass House\nTropical House\nHardstyle\nDrum and Bass=Drum and Bass|dnb|d&b|drum & bass|drum n bass\nLiquid Drum and Bass\nNeurofunk\nMelodic Dubstep\nFuture Bass\nUK Garage\nUK Bass\nBreakcore\nSynthwave\nRetrowave\nVaporwave\nElectropop\nHyperpop\nAmbient Pop\nDark Ambient\nDrone\nExperimental Electronic\nMinimal Techno\nMelodic Techno\nAcid Techno\nProgressive Trance\nBalearic\nNew Classical\nModern Classical\nRomantic\n管弦乐=Orchestral\n钢琴=Piano\n合唱=Choral\n电影配乐=Film Score\nMusical Theatre\n中国传统音乐=Chinese Traditional|传统音乐\n戏曲=Chinese Opera\n古风=Gufeng|古风音乐\n中国民乐=Chinese Folk|民乐|国乐\nCeltic Folk\nIndian Classical\nBollywood\nQawwali\nFlamenco\nFado\nBachata\nReggaeton\nLatin Pop\nLatin Rock\nCumbia\nMPB\nBuddhist Chant\nNasheed\nChristian Contemporary\nWorship\n儿童音乐=Children\n摇篮曲=Lullaby\n朗诵=Spoken Word\nASMR\nWorld Fusion"
 genre_numbers = "Blues|Classic Rock|Country|Dance|Disco|Funk|Grunge|Hip-Hop|Jazz|Metal|New Age|Oldies|Other|Pop|R&B|Rap|Reggae|Rock|Techno|Industrial|Alternative|Ska|Death Metal|Pranks|Soundtrack|Euro-Techno|Ambient|Trip-Hop|Vocal|Jazz+Funk|Fusion|Trance|Classical|Instrumental|Acid|House|Game|Sound Clip|Gospel|Noise|AlternRock|Bass|Soul|Punk|Space|Meditative|Instrumental Pop|Instrumental Rock|Ethnic|Gothic|Darkwave|Techno-Industrial|Electronic|Pop-Folk|Eurodance|Dream|Southern Rock|Comedy|Cult|Gangsta|Top 40|Christian Rap|Pop/Funk|Jungle|Native American|Cabaret|New Wave|Psychedelic|Rave|Showtunes|Trailer|Lo-Fi|Tribal|Acid Punk|Acid Jazz|Polka|Retro|Musical|Rock & Roll|Hard Rock|Folk|Folk-Rock|National Folk|Swing|Fast Fusion|Bebop|Latin|Revival|Celtic|Bluegrass|Avantgarde|Gothic Rock|Progressive Rock|Psychedelic Rock|Symphonic Rock|Slow Rock|Big Band|Chorus|Easy Listening|Acoustic|Humour|Speech|Chanson|Opera|Chamber Music|Sonata|Symphony|Booty Bass|Primus|Porn Groove|Satire|Slow Jam|Club|Tango|Samba|Folklore|Ballad|Power Ballad|Rhythmic Soul|Freestyle|Duet|Punk Rock|Drum Solo|A Cappella|Euro-House|Dance Hall|Goa|Drum & Bass|Club-House|Hardcore Techno|Terror|Indie|BritPop|Negerpunk|Polsk Punk|Beat|Christian Gangsta Rap|Heavy Metal|Black Metal|Crossover|Contemporary Christian|Christian Rock|Merengue|Salsa|Thrash Metal|Anime|Jpop|Synthpop|Abstract|Art Rock|Baroque|Bhangra|Big Beat|Breakbeat|Chillout|Downtempo|Dub|EBM|Eclectic|Electro|Electroclash|Emo|Experimental|Garage|Global|IDM|Illbient|Industro-Goth|Jam Band|Krautrock|Leftfield|Lounge|Math Rock|New Romantic|Nu-Breakz|Post-Punk|Post-Rock|Psytrance|Shoegaze|Space Rock|Trop Rock|World Music|Neoclassical|Audiobook|Audio Theatre|Neue Deutsche Welle|Podcast|Indie Rock|G-Funk|Dubstep|Garage Rock|Psybient"
 language_scripts = "ja=3040-309f,30a0-30ff,ff65-ff9f\nko=ac00-d7af,1100-11ff,3130-318f\nzh=3400-4dbf,4e00-9fff,f900-faff,20000-2fa1f\nth=0e00-0e7f\nhe=0590-05ff\nel=0370-03ff,1f00-1fff\nhi=0900-097f\nbn=0980-09ff\npa=0a00-0a7f\ngu=0a80-0aff\nta=0b80-0bff\nte=0c00-0c7f\nkn=0c80-0cff\nml=0d00-0d7f\nsi=0d80-0dff\nlo=0e80-0eff\nkm=1780-17ff\nmy=1000-109f\nka=10a0-10ff,2d00-2d2f\nhy=0530-058f\nam=1200-137f\nbo=0f00-0fff\ncyrl=0400-052f\narab=0600-06ff,0750-077f,08a0-08ff\nlatin=0041-005a,0061-007a,00c0-024f,1e00-1eff"
 language_words = "en=i|you|the|my|love|heart|your|and|we|of|me|baby|never|forever|hello|world|night|dream|beautiful|yellow|stay|yesterday|tomorrow|tonight|with|without|everything|nothing|someone|something|goodbye|always|wish|happy|home|believe|music|fire|rain|moon|sun|light|life|time\nfr=je|tu|vous|nous|mon|ma|mes|amour|coeur|cœur|bonjour|adieu|jamais|toujours|pour|avec|sans|vie|nuit|soleil|demain\nes=yo|eres|soy|quiero|corazón|corazon|mi|amor|contigo|nunca|siempre|porque|noche|vida|bailando|mañana|mañana|canción|adiós\npt=você|voce|coração|coracao|saudade|meu|minha|não|nao|obrigado|sempre|comigo|noite|canção|amanhã|paixão\nde=ich|dich|du|mein|meine|liebe|herz|nicht|nacht|danke|immer|leben|träume|morgen|ohne|mit\nit=io|tu|amore|cuore|vita|notte|sempre|grazie|senza|perché|perche|mia|mio|domani|bella\nvi=tôi|toi|anh|em|yêu|yeu|mình|minh|không|khong|người|nguoi|đêm|dem|nhớ|nho\ntr=ben|seni|aşk|ask|kalbim|sen|güzel|guzel|gece|hayat|bir|sana\nru=я|ты|тебя|любовь|сердце|моя|мой|ночь|жизнь|душа|никогда\nuk=тебе|мене|кохання|серце|моє|ніч|життя|тобою\nfa=عشق|من|تو|دلم|دوست|زندگی\nar=حبيبي|أنت|قلبي|الحب|ليلة|حبيبتي\nur=محبت|دل|تم|زندگی|پیار\nid=aku|kamu|cinta|hatiku|sayang|tidak|selalu|malam\nms=awak|sayangku|hatimu|kasih|rindu|kenangan\nnl=ik|jou|liefde|mijn|hart|nacht|zonder|altijd\npl=kocham|ciebie|serce|miłość|milosc|noc|zawsze\nro=iubire|inimă|inima|noapte|mereu|dragoste\nsv=jag|dig|kärlek|hjärta|alltid|natt\nno=jeg|deg|kjærlighet|hjerte|alltid\nda=jeg|dig|kærlighed|hjerte\nfi=minä|sinä|rakkaus|sydän|yö|aina\ncs=láska|srdce|tebe|nikdy|vždy\nhu=szeretlek|szív|sziv|éjjel|mindig\ntl=mahal|ikaw|puso|pagibig|habang\nsw=nakupenda|upendo|moyo|wewe\nja=kimi|anata|watashi|kokoro|sakura"
@@ -458,9 +632,223 @@ request_limit = 32
 pending_bytes = 8388608
 resource_bytes = 134217728
 resource_timeout_ms = 30000
-resource_workers = 3
+resource_workers = 6
 resource_chunk_bytes = 16384
+resource_cache_bytes = 1073741824
+
+[layout]
+min_gap_dp = 12
 
 [geometry]
+back_button_dp = 44
+back_arrow_dp = 20
 chevron_span_dp = 12
 chevron_stroke_dp = 2
+
+[personal]
+block_confirm_count = 10
+cover_icon_inset_dp = 8
+sort_anchor = 0.5
+question_gap_dp = 4
+press_scale = 0.96
+press_hold_scale = 0.98
+delete_color = "#E53935"
+menu_width_dp = 240
+dialog_width_dp = 300
+line_dp = 48
+hint_sp = 12
+file_bytes = 4194304
+playlist_limit = 256
+name_bytes = 128
+track_limit = 100000
+
+[listening]
+checkpoint_ms = 60000
+gap_dp = 1.5
+caption_dp = 22
+text_sp = 12
+color_0 = "#EBEDF0"
+color_1 = "#9BE9A8"
+color_2 = "#40C463"
+color_3 = "#30A14E"
+color_4 = "#216E39"
+minutes_2 = 15
+minutes_3 = 45
+minutes_4 = 90
+
+[landscape]
+drawer_fraction = 0.5
+cover_dp = 64
+min_player_dp = 360
+cell_dp = 180
+immersive_cover_dp = 40
+immersive_header_start = 0.65
+immersive_field_wash = 0.20
+
+[transitions]
+cover = true
+background = true
+
+[audio_transition]
+enabled = true
+automatic_ms = 7000
+manual_ms = 4000
+
+[lyric_credits]
+narrative_subjects = "我|你|他|她|它|谁|什么|怎么|为何|I|YOU|HE|SHE|WE|THEY|WHO|WHAT|WHEN|WHERE|HOW|WHY"
+block_min_anchors = 2
+role_modifiers = "原|原版|改编|改編|联合|聯合|执行|執行|助理|协助|協助|现场|現場|总|總|副|人声|人聲|音乐|音樂|音频|音頻|项目|項目|Original|Adapted|Co|Additional|Assistant|Live|工程师|工程師|师|師|Engineer|Engineering"
+max_header_bytes = 1024
+roles = "ARTIST|COMPOSER|LYRICIST|SONGWRITER|ARRANGER|PRODUCER|MIXER|MASTERING|RECORDING|STUDIO|VOCALARRANGEMENT|BACKINGVOCALS|LABEL|PUBLISHER|COPYRIGHT|LYRICSAUTHOR|EXECUTIVEPRODUCER|PLANNING|MARKETING|PRESENTEDBY|PRESENTER|PRODUCERTAG|BEATPRODUCER|VOCALPRODUCER|VOCALDIRECTOR|GUITAR|ELECTRICGUITAR|ACOUSTICGUITAR|BASS|DRUMS|PIANO|KEYBOARDS|SYNTHESIZER|STRINGS|STRINGSARRANGEMENT|STRINGSPRODUCER|STRINGSRECORDING|VIOLIN|VIOLA|CELLO|ORCHESTRA|CONDUCTOR|MUSICDIRECTOR|COORDINATOR|PRODUCTIONCOORDINATOR|PROJECTCOORDINATOR|RECORDINGPRODUCER|COVERDESIGN|VISUALDESIGN|PHOTOGRAPHY|COPYWRITING|MARKETINGCOORDINATOR|PUBLICITY|ORIGINALARTIST|ADAPTEDLYRICIST|ORIGINALARRANGER"
+prefixes = "Beat By=BEATPRODUCER|Beats By=BEATPRODUCER|Produced By=PRODUCER|Written By=SONGWRITER|Composed By=COMPOSER|Lyrics By=LYRICIST|Arranged By=ARRANGER|Mixed By=MIXER|Mastered By=MASTERING"
+aliases = "歌名=TITLE|歌曲名=TITLE|歌手=ARTIST|演唱=ARTIST|专辑=ALBUM|流派=GENRE|作曲=COMPOSER|曲=COMPOSER|作词=LYRICIST|作詞=LYRICIST|词=LYRICIST|詞=LYRICIST|词曲=SONGWRITER|詞曲=SONGWRITER|编曲=ARRANGER|編曲=ARRANGER|制作人=PRODUCER|製作人=PRODUCER|制作=PRODUCER|混音=MIXER|混音师=MIXER|母带=MASTERING|母帶=MASTERING|母带工程师=MASTERING|录音=RECORDING|錄音=RECORDING|录音师=RECORDING|录音室=STUDIO|錄音室=STUDIO|和声编写=VOCALARRANGEMENT|和声=BACKINGVOCALS|和聲=BACKINGVOCALS|发行=LABEL|唱片公司=LABEL|出版=PUBLISHER|版权=COPYRIGHT|歌词制作=LYRICSAUTHOR|歌词编辑=LYRICSAUTHOR|出品=PRESENTEDBY|出品人=PRESENTER|企划=PLANNING|策划=PLANNING|监制=EXECUTIVEPRODUCER|監製=EXECUTIVEPRODUCER|推广营销=MARKETING|推广=MARKETING|宣发=MARKETING|制作人Tag=PRODUCERTAG|ProducerTag=PRODUCERTAG|录音棚=STUDIO|錄音棚=STUDIO|配唱制作人=VOCALPRODUCER|配唱制作=VOCALPRODUCER|配唱=VOCALPRODUCER|人声制作=VOCALPRODUCER|声乐指导=VOCALDIRECTOR|演唱指导=VOCALDIRECTOR|吉他=GUITAR|电吉他=ELECTRICGUITAR|木吉他=ACOUSTICGUITAR|贝斯=BASS|贝司=BASS|鼓=DRUMS|鼓组=DRUMS|架子鼓=DRUMS|钢琴=PIANO|键盘=KEYBOARDS|合成器=SYNTHESIZER|弦乐=STRINGS|弦乐编写=STRINGSARRANGEMENT|弦乐监制=STRINGSPRODUCER|弦乐录音=STRINGSRECORDING|小提琴=VIOLIN|中提琴=VIOLA|大提琴=CELLO|管弦乐=ORCHESTRA|乐团=ORCHESTRA|指挥=CONDUCTOR|音乐总监=MUSICDIRECTOR|音乐制作总监=MUSICDIRECTOR|统筹=COORDINATOR|制作统筹=PRODUCTIONCOORDINATOR|项目统筹=PROJECTCOORDINATOR|执行制作人=EXECUTIVEPRODUCER|录音制作人=RECORDINGPRODUCER|封面设计=COVERDESIGN|封面=COVERDESIGN|视觉设计=VISUALDESIGN|摄影=PHOTOGRAPHY|文案=COPYWRITING|宣发统筹=MARKETINGCOORDINATOR|宣传=PUBLICITY|Recording Studio=STUDIO|Vocal Producer=VOCALPRODUCER|Guitars=GUITAR|Guitarist=GUITAR|Recording Engineer=RECORDING|Mixing Engineer=MIXER|Mastering Engineer=MASTERING|Production Coordinator=PRODUCTIONCOORDINATOR|錄音師=RECORDING|配唱製作人=VOCALPRODUCER|配唱製作=VOCALPRODUCER|人聲製作=VOCALPRODUCER|聲樂指導=VOCALDIRECTOR|演唱指導=VOCALDIRECTOR|電吉他=ELECTRICGUITAR|貝斯=BASS|貝司=BASS|鼓組=DRUMS|鋼琴=PIANO|鍵盤=KEYBOARDS|弦樂=STRINGS|弦樂編寫=STRINGSARRANGEMENT|管弦樂=ORCHESTRA|樂團=ORCHESTRA|指揮=CONDUCTOR|音樂總監=MUSICDIRECTOR|製作統籌=PRODUCTIONCOORDINATOR|原唱=ORIGINALARTIST|改编词=ADAPTEDLYRICIST|原编曲=ORIGINALARRANGER|营销=MARKETING|唱=ARTIST|OP=PUBLISHER|SP=PUBLISHER|Original Publisher=PUBLISHER|Sub Publisher=PUBLISHER|著作权=COPYRIGHTSUBJECT|著作權=COPYRIGHTSUBJECT|版权所有=COPYRIGHTSUBJECT|版權所有=COPYRIGHTSUBJECT|Copyright=COPYRIGHTSUBJECT|未经=COPYRIGHTRESTRICTION|未經=COPYRIGHTRESTRICTION|不得=COPYRIGHTRESTRICTION|禁止=COPYRIGHTRESTRICTION|保留所有权利=COPYRIGHTRESTRICTION|保留所有權利=COPYRIGHTRESTRICTION|All rights reserved=COPYRIGHTRESTRICTION"
+edge_lines = 8
+max_label_bytes = 96
+
+[lyric_translation]
+inline_min_pairs = 2
+
+[library]
+rail_idle_ms = 2500
+rail_dp = 2
+rail_hit_dp = 20
+rail_min_dp = 28
+index_sp = 9
+index_fade_ms = 180
+cache_bytes = 33554432
+# Bounded system-provider opens; worker exhaustion skips optional probing, never waits per remaining row.
+read_timeout_ms = 1500
+read_workers = 2
+scan_max_depth = 128
+scan_max_entries = 200000
+# 0 media-store order, 1..12 explicit track sorts
+sort = 1
+
+[typography]
+minimum_weight = 200
+maximum_weight = 800
+weight_step = 25
+preferred_families = "pingfang|苹方"
+import_mime_types = "font/*|application/font-sfnt|application/x-font-ttf|application/x-font-opentype|application/vnd.ms-opentype|application/octet-stream"
+family = "auto"
+follow_system = false
+follow_parameters = false
+minimum_ratio = 0.75
+maximum_ratio = 1.5
+minimum_size_sp = 8
+maximum_size_sp = 96
+import_max_bytes = 67108864
+import_timeout_ms = 10000
+import_limit = 64
+recommended_limit = 128
+
+[typography.sizes]
+sheet_row_sp = 16
+button_text_sp = 16
+title_sp = 24
+artist_sp = 16
+duration_sp = 12
+header_sp = 20
+row_title_sp = 16
+row_meta_sp = 12
+lyric_main_mini_sp = 20
+lyric_main_expanded_sp = 38
+lyric_translation_mini_sp = 16
+lyric_translation_expanded_sp = 20
+lyric_phonetic_sp = 13
+lyric_bg_sp = 20
+lyric_bg_mini_sp = 16
+lyric_bg_translation_sp = 16
+lyric_bg_translation_mini_sp = 13
+lyric_ruby_sp = 13
+immersive_title_sp = 24
+immersive_artist_sp = 16
+immersive_time_sp = 12
+about_name_sp = 22
+about_slogan_sp = 16
+about_version_sp = 12
+support_product_sp = 26
+support_body_sp = 16
+support_amount_sp = 36
+personal_hint_sp = 12
+listening_text_sp = 12
+
+[typography.bold]
+sheet_row_sp = false
+button_text_sp = false
+title_sp = true
+artist_sp = false
+duration_sp = false
+header_sp = false
+row_title_sp = false
+row_meta_sp = false
+lyric_main_mini_sp = true
+lyric_main_expanded_sp = true
+lyric_translation_mini_sp = false
+lyric_translation_expanded_sp = false
+lyric_phonetic_sp = false
+lyric_bg_sp = true
+lyric_bg_mini_sp = true
+lyric_bg_translation_sp = false
+lyric_bg_translation_mini_sp = false
+lyric_ruby_sp = false
+immersive_title_sp = true
+immersive_artist_sp = false
+immersive_time_sp = false
+about_name_sp = false
+about_slogan_sp = false
+about_version_sp = false
+support_product_sp = true
+support_body_sp = false
+support_amount_sp = false
+personal_hint_sp = false
+listening_text_sp = false
+
+[audio_quality]
+enabled = true
+text_width_ratio = 0.75
+atmos_color = "#CE6694"
+height_dp = 12
+pad_dp = 4
+gap_dp = 6
+radius_dp = 2
+wash_alpha = 0.16
+cd_rate = 44100
+hr_rate = 48000
+hr_bits = 16
+lossy_color = "#3478D4"
+lossless_color = "#4C9FA8"
+hr_color = "#C49117"
+dsd_color = "#CD7553"
+
+[audio_focus]
+duck_gain = 0.2
+ramp_ms = 150
+
+[typography.weights]
+row_title_sp = 0
+title_sp = 0
+artist_sp = 0
+duration_sp = 0
+lyric_main_mini_sp = 0
+lyric_main_expanded_sp = 0
+
+[font_fit]
+width_px = 320
+height_px = 96
+small_px = 28
+large_px = 36
+padding_px = 4
+alpha_threshold = 96
+minimum_counter_pixels = 2
+counter_area_ratio = 0.45
+step = 50
+stroke_em_per_weight = 0.00008
+max_tables = 4096
+max_axes = 64
+sample = "aeB8国器晴赢"
+
+[sleep]
+min_minutes = 2
+max_minutes = 120
+default_minutes = 30

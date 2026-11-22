@@ -47,10 +47,15 @@
     "config_tables": []
   },
   "playback": {
-    "config_tables": []
+    "config_tables": [
+      "audio_transition"
+    ]
   },
   "playback-memory": {
-    "config_tables": []
+    "config_tables": [
+      "listening",
+      "listening_copy"
+    ]
   },
   "playback-rules": {
     "config_tables": []
@@ -76,10 +81,18 @@
       "plugin_repository"
     ]
   },
+  "personal-library": {
+    "config_tables": [
+      "personal",
+      "personal_copy"
+    ]
+  },
   "profile": {
     "config_tables": [
       "profile",
-      "profile_copy"
+      "profile_copy",
+      "listening",
+      "listening_copy"
     ]
   },
   "profile-classification": {
@@ -126,13 +139,26 @@
     ]
   },
   "style-picker": {
-    "config_tables": []
+    "config_tables": [
+      "style"
+    ]
   },
   "style.bloom": {
     "config_tables": []
   },
   "style.ember": {
     "config_tables": []
+  },
+  "style.immersive": {
+    "config_tables": [
+      "immersive"
+    ]
+  },
+  "scan-strategy": {
+    "config_tables": [
+      "scan_strategy",
+      "scan_strategy_copy"
+    ]
   },
   "support-page": {
     "config_tables": [
