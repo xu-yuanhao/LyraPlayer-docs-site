@@ -11,7 +11,7 @@
     "reference-data/publication.json": "82a2e3bdf82ec5d78715fbceac4e020192aa0003021ee195b60d8d3562972131",
     "reference-data/release.json": "a0d6d0d630ccc674d76d5e3da9aa3062db5e0289e3cb235842edcf71c8d078b0",
     "reference-data/services.json": "4c4546eb414c0b661b1dd610812af72176d61b1cf8c609cc484d9d689dcb5371",
-    "reference-data/ui.toml": "8057983a912b976550066a7cea14b36f6fa9040e4bda83c2e79ccea30661ae00",
+    "reference-data/ui.toml": "b68ac475f9353e4bce90dfc945b64ec7c02118ac24052491716565dc49d37178",
     "reference-data/zh-Hans.toml": "f49f96d5d1be50cded56a8c8e6d5262df0e1fbf2ccef30fd4e428e552be2741f",
     "sdk/include/plugin/clipboard_contracts.h": "3c34c96a32fba871493d1a2b9f39bc29acb6e68c0a8b817d837ca2a33584dbba",
     "sdk/include/plugin/collection_directory_contracts.h": "5cd2dbbedd4b7d880b1a88fc19d7f74ac89248603fb013ae808e20fe9eb4cf7f",
@@ -124,6 +124,8 @@
         "inactive"
       ],
       "search": [
+        "min_text_width_dp",
+        "field_text_reserve_dp",
         "reveal_height_fraction",
         "minimum_visible_foreground_dp",
         "foreground_open_scale",

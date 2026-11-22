@@ -81,6 +81,8 @@ wash = 0.72
 inactive = "#9A9AA2"
 
 [search]
+min_text_width_dp = 40
+field_text_reserve_dp = 32
 reveal_height_fraction = 0.5
 minimum_visible_foreground_dp = 112
 foreground_open_scale = 0.96
