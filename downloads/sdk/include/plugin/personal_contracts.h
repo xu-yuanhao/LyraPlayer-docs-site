@@ -42,3 +42,5 @@ enum {
   LYRA_PERSONAL_PROVIDER = 6,
   LYRA_PERSONAL_UID = 7
 };
+
+// ADD with PROVIDER and UID may also supply an optional NAME as a cached song title.
